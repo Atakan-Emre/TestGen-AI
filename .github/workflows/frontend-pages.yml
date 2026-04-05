@@ -1,15 +1,14 @@
 name: Frontend Pages Deploy
 
 on:
-  workflow_run:
-    workflows:
-      - CI
-    types:
-      - completed
+  push:
     branches:
       - main
       - master
   workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 permissions:
   contents: read
@@ -22,7 +21,6 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -30,14 +28,13 @@ jobs:
     env:
       VITE_BASE_PATH: /${{ github.event.repository.name }}/
       VITE_API_URL: ${{ vars.VITE_API_URL }}
+      PAGES_ADMIN_TOKEN: ${{ secrets.PAGES_ADMIN_TOKEN }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: npm
@@ -53,18 +50,18 @@ jobs:
         run: npm run build:pages
 
       - name: Configure Pages and enable site
-        if: ${{ secrets.PAGES_ADMIN_TOKEN != '' }}
+        if: ${{ env.PAGES_ADMIN_TOKEN != '' }}
         uses: actions/configure-pages@v5
         with:
-          token: ${{ secrets.PAGES_ADMIN_TOKEN }}
+          token: ${{ env.PAGES_ADMIN_TOKEN }}
           enablement: true
 
       - name: Configure Pages
-        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        if: ${{ env.PAGES_ADMIN_TOKEN == '' }}
         uses: actions/configure-pages@v5
 
       - name: Pages bootstrap note
-        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        if: ${{ env.PAGES_ADMIN_TOKEN == '' }}
         run: |
           echo "::notice::If this repository has never enabled GitHub Pages before, set Settings > Pages > Source to GitHub Actions once or add a PAGES_ADMIN_TOKEN secret so the workflow can auto-enable Pages."
 

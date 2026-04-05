@@ -201,12 +201,13 @@ docker compose up -d --build
 
 ## 🚀 GitHub Pages Demo ve Yayın Akışı
 
-Frontend demosu GitHub Actions üzerinden otomatik olarak GitHub Pages'e deploy edilmektedir. `.github/workflows/frontend-pages.yml` dosyası CI başarıyla tamamlandığında tetiklenir.
+Frontend demosu GitHub Actions üzerinden otomatik olarak GitHub Pages'e deploy edilmektedir. [frontend-pages.yml](/Users/atakanemre/Downloads/test_project-main/.github/workflows/frontend-pages.yml) dosyası `main` veya `master` branch'ine yapılan push sonrası tetiklenir. İstenirse Actions ekranından manuel olarak da çalıştırılabilir.
 
 **Gereksinimler:**
 
   * GitHub repo ayarlarından Pages kaynağının **GitHub Actions** seçilmesi.
-  * `PAGES_ADMIN_TOKEN` secret ayarının ve backend ile haberleşme için `VITE_API_URL` variable'ının eklenmiş olması.
+  * Backend ile haberleşme için `VITE_API_URL` variable'ının eklenmiş olması.
+  * Repo daha önce Pages için hiç açılmadıysa ya bir kez `Settings > Pages > Source: GitHub Actions` seçilmesi ya da `PAGES_ADMIN_TOKEN` secret'ının eklenmiş olması.
 
 -----
 
