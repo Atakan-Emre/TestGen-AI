@@ -1,16 +1,22 @@
 {
-  "sample_name": "repo_sample_suite",
-  "scenario_name": "RepoSample",
+  "sample_name": "test",
+  "scenario_name": "test",
   "source_csv": "example.csv",
   "json_template": "Example-Header.json",
   "variables_profile": "variablesHeader",
   "binding_mode": "dynamic-inline-auto-resolve",
+  "generated_counts": {
+    "bsc": 1,
+    "ngi": 21,
+    "ngv": 0,
+    "opt": 4,
+    "total": 26
+  },
   "included_samples": {
-    "scenario_text": "data/output/repo_samples/scenarios/RepoSample.txt",
-    "scenario_metadata": "data/output/repo_samples/scenarios/RepoSample.meta.json",
-    "bsc": "data/output/repo_samples/test_cases/bsc/bsc_sample.json",
-    "ngi": "data/output/repo_samples/test_cases/ngi/ngi_sample.json",
-    "ngv": "data/output/repo_samples/test_cases/ngv/ngv_sample.json",
-    "opt": "data/output/repo_samples/test_cases/opt/opt_sample.json"
+    "scenario_text": "data/output/repo_samples/scenarios/test.txt",
+    "scenario_metadata": "data/output/repo_samples/scenarios/test.meta.json",
+    "bsc": "data/output/repo_samples/test_cases/bsc/bsc_test.json",
+    "ngi": "data/output/repo_samples/test_cases/ngi/ngi_test.json",
+    "opt": "data/output/repo_samples/test_cases/opt/opt_test.json"
   }
 }

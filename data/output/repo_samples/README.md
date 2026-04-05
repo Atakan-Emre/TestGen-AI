@@ -10,12 +10,23 @@ Kaynak girdiler:
 
 Icerik:
 
-- `scenarios/RepoSample.txt`
-- `scenarios/RepoSample.meta.json`
-- `test_cases/bsc/bsc_sample.json`
-- `test_cases/ngi/ngi_sample.json`
-- `test_cases/ngv/ngv_sample.json`
-- `test_cases/opt/opt_sample.json`
+- `scenarios/test.txt`
+- `scenarios/test.meta.json`
+- `test_cases/bsc/bsc_test.json`
+- `test_cases/ngi/ngi_test.json`
+- `test_cases/opt/opt_test.json`
+
+Gercek uretim sonucu:
+
+- `BSC: 1`
+- `NGI: 21`
+- `NGV: 0`
+- `OPT: 4`
+- `Toplam: 26`
+
+Not:
+
+- Bu ornek veri setinde `NGV` route'u basarili donse de dosya uretmedi, bu yuzden repoda sabit `NGV` sample dosyasi tutulmuyor.
 
 Amac:
 

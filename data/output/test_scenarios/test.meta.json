@@ -1,9 +1,9 @@
 {
-  "scenario_name": "RepoSample",
+  "scenario_name": "test",
   "source_csv": "example.csv",
   "generator_type": "nlp_hybrid",
-  "generated_at": "2026-04-05T17:33:38.881018",
-  "scenario_file": "RepoSample_20260405_173338.txt",
+  "generated_at": "2026-04-05T19:15:26.967856",
+  "scenario_file": "test.txt",
   "fields": [
     {
       "field_name_tr": "Hareket Seri",

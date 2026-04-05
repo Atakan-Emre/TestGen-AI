@@ -22,7 +22,7 @@ export const DEMO_MODE_DESCRIPTION =
 export const DEMO_MUTATION_MESSAGE =
   'Bu işlem GitHub Pages demo modunda kapalı. Canlı kullanım için bir FastAPI backend deploy edilip VITE_API_URL tanımlanmalıdır.';
 
-const DEMO_TIMESTAMP = '2026-04-05T17:33:40.510Z';
+const DEMO_TIMESTAMP = '2026-04-05T19:15:26.967856Z';
 const DEMO_SCENARIO_TEXT = `Hareket Seri (Movement Serial) alanı maksimum 3 karakterli olmalıdır.
 Hareket Seri (Movement Serial) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
 Hareket Seri (Movement Serial) alanı doldurulması zorunludur.
@@ -152,23 +152,23 @@ const DEMO_JSON_OBJECT = {
 };
 
 export const demoScenarioMetadata: ScenarioMetadata = {
-  scenario_name: 'RepoSample',
+  scenario_name: 'test',
   source_csv: 'example.csv',
   generator_type: 'nlp_hybrid',
   generated_at: DEMO_TIMESTAMP,
-  field_count: 23,
-  required_count: 18,
-  optional_count: 5,
+  field_count: 43,
+  required_count: 34,
+  optional_count: 9,
   unique_count: 2,
-  average_confidence: 0.94,
-  semantic_tags: ['document', 'serial', 'currency', 'user', 'date', 'status'],
+  average_confidence: 0.87,
+  semantic_tags: ['person', 'document', 'check', 'card', 'date', 'currency'],
   type_distribution: [
-    { type: 'id', count: 8 },
-    { type: 'string', count: 5 },
-    { type: 'date', count: 3 },
-    { type: 'enum', count: 3 },
-    { type: 'number', count: 2 },
-    { type: 'boolean', count: 2 },
+    { type: 'id', count: 12 },
+    { type: 'string', count: 9 },
+    { type: 'date', count: 6 },
+    { type: 'enum', count: 6 },
+    { type: 'number', count: 6 },
+    { type: 'bool', count: 4 },
   ],
   fields: [
     {
@@ -282,11 +282,11 @@ export const demoVariableProfiles: VariableProfileInfo[] = [
 
 export const demoScenarios: Scenario[] = [
   {
-    id: 'RepoSample',
-    name: 'RepoSample',
-    full_name: '/app/data/output/test_scenarios/RepoSample_20260405_173338.txt',
-    file_path: '/app/data/output/test_scenarios/RepoSample_20260405_173338.txt',
-    filename: 'RepoSample_20260405_173338.txt',
+    id: 'test',
+    name: 'test',
+    full_name: '/app/data/output/test_scenarios/test.txt',
+    file_path: '/app/data/output/test_scenarios/test.txt',
+    filename: 'test.txt',
     date: '2026-04-05',
     created_at: DEMO_TIMESTAMP,
     updated_at: DEMO_TIMESTAMP,
@@ -294,6 +294,19 @@ export const demoScenarios: Scenario[] = [
     metadata: demoScenarioMetadata,
   },
 ];
+
+const DEMO_CASE_COUNTS = {
+  bsc: 1,
+  ngi: 21,
+  ngv: 0,
+  opt: 4,
+} as const;
+
+const DEMO_TOTAL_CASES =
+  DEMO_CASE_COUNTS.bsc +
+  DEMO_CASE_COUNTS.ngi +
+  DEMO_CASE_COUNTS.ngv +
+  DEMO_CASE_COUNTS.opt;
 
 export const demoDashboardSummary = {
   status: 'healthy',
@@ -305,7 +318,7 @@ export const demoDashboardSummary = {
     input_files: demoCsvFiles.length + demoJsonFiles.length + demoVariableFiles.length,
     scenarios: demoScenarios.length,
     test_suites: 1,
-    test_cases: 4,
+    test_cases: DEMO_TOTAL_CASES,
   },
   input_breakdown: [
     { key: 'csv', label: 'CSV', count: demoCsvFiles.length },
@@ -313,32 +326,32 @@ export const demoDashboardSummary = {
     { key: 'variables', label: 'Variables', count: demoVariableFiles.length },
   ],
   test_types: [
-    { key: 'bsc', label: 'BSC', suite_count: 1, case_count: 1 },
-    { key: 'ngi', label: 'NGI', suite_count: 1, case_count: 1 },
-    { key: 'ngv', label: 'NGV', suite_count: 1, case_count: 1 },
-    { key: 'opt', label: 'OPT', suite_count: 1, case_count: 1 },
+    { key: 'bsc', label: 'BSC', suite_count: 1, case_count: DEMO_CASE_COUNTS.bsc },
+    { key: 'ngi', label: 'NGI', suite_count: 1, case_count: DEMO_CASE_COUNTS.ngi },
+    { key: 'ngv', label: 'NGV', suite_count: 1, case_count: DEMO_CASE_COUNTS.ngv },
+    { key: 'opt', label: 'OPT', suite_count: 1, case_count: DEMO_CASE_COUNTS.opt },
   ],
   recent_scenarios: [
     {
-      id: 'RepoSample',
-      name: 'RepoSample',
+      id: 'test',
+      name: 'test',
       date: '2026-04-05',
-      filename: 'RepoSample_20260405_173338.txt',
+      filename: 'test.txt',
       updated_at: DEMO_TIMESTAMP,
       size: DEMO_SCENARIO_TEXT.length,
     },
   ],
   recent_tests: [
     {
-      name: 'repo_sample_suite',
+      name: 'test',
       created_at: DEMO_TIMESTAMP,
       updated_at: DEMO_TIMESTAMP,
-      total_files: 4,
+      total_files: DEMO_TOTAL_CASES,
       types: [
-        { key: 'bsc', label: 'BSC', count: 1 },
-        { key: 'ngi', label: 'NGI', count: 1 },
-        { key: 'ngv', label: 'NGV', count: 1 },
-        { key: 'opt', label: 'OPT', count: 1 },
+        { key: 'bsc', label: 'BSC', count: DEMO_CASE_COUNTS.bsc },
+        { key: 'ngi', label: 'NGI', count: DEMO_CASE_COUNTS.ngi },
+        { key: 'ngv', label: 'NGV', count: DEMO_CASE_COUNTS.ngv },
+        { key: 'opt', label: 'OPT', count: DEMO_CASE_COUNTS.opt },
       ],
     },
   ],
@@ -474,10 +487,10 @@ export const demoBindingRules: BindingFieldRule[] = [
 ];
 
 export const demoBindingProfile: BindingProfile = {
-  name: 'binding_auto_example_variablesheader_bsc_ngi_ngv_opt',
+  name: 'binding_auto_test_variablesheader_bsc_ngi_ngv_opt',
   source: {
-    scenario_name: 'RepoSample',
-    scenario_id: 'RepoSample',
+    scenario_name: 'test',
+    scenario_id: 'test',
     json_file_id: 1,
     json_file_name: 'Example-Header.json',
     variable_profiles: ['variablesHeader'],
@@ -501,25 +514,25 @@ export const demoAutoResolveResult: BindingAutoResolveResult = {
   profile_name: demoBindingProfile.name,
   review_recommended: true,
   summary: {
-    total_fields: 23,
-    matched_fields: 7,
-    suggested_fields: 2,
-    generated_fields: 8,
-    template_fields: 6,
-    bound_fields: 7,
-    approved_fields: 9,
-    match_ratio: 0.3,
-    average_confidence: 0.91,
-    min_confidence: 0.79,
+    total_fields: 49,
+    matched_fields: 9,
+    suggested_fields: 0,
+    generated_fields: 1,
+    template_fields: 39,
+    bound_fields: 9,
+    approved_fields: 48,
+    match_ratio: 0.184,
+    average_confidence: 0.349,
+    min_confidence: 0,
     review_recommended: true,
-    review_reasons: ['low_match_ratio', 'manual_review_recommended'],
+    review_reasons: ['generated_fields_present', 'low_match_ratio'],
   },
   suggestion: {
     json_file_id: 1,
     variables_profile: 'variablesHeader',
-    total_fields: 23,
-    matched_fields: 7,
-    unmatched_fields: 16,
+    total_fields: 49,
+    matched_fields: 9,
+    unmatched_fields: 40,
     fields: demoBindingRules,
     generated_at: DEMO_TIMESTAMP,
   },
@@ -529,38 +542,210 @@ export const demoAutoResolveResult: BindingAutoResolveResult = {
 const demoCaseCatalog: Record<string, GeneratedCaseSummary[]> = {
   bsc: [
     {
-      file_path: '/demo/repo_sample_suite/bsc/bsc_sample.json',
-      file_name: 'bsc_sample.json',
-      description: 'BSC test senaryosu - repo_sample_suite (18 zorunlu alan)',
+      file_path: '/demo/test/bsc/bsc_test.json',
+      file_name: 'bsc_test.json',
+      description: 'BSC test senaryosu - test (18 zorunlu alan)',
       scenario_type: 'BSC',
       expected_result: 'SUCCESS',
     },
   ],
   ngi: [
     {
-      file_path: '/demo/repo_sample_suite/ngi/ngi_sample.json',
-      file_name: 'ngi_sample.json',
+      file_path: '/demo/test/ngi/ngi_test_01.json',
+      file_name: 'ngi_test_01.json',
       description: "Alan 'currencyDescription.id' için geçersiz para birimi referansı testi",
       scenario_type: 'NGI',
       expected_result: 'VALIDATION_ERROR',
       expected_message: "Alan 'currencyDescription.id' için geçersiz değer: invalid-currency-id",
     },
-  ],
-  ngv: [
     {
-      file_path: '/demo/repo_sample_suite/ngv/ngv_sample.json',
-      file_name: 'ngv_sample.json',
-      description: "Tekil alan 'Hareket Belge No' için tekrarlı değer testi",
-      scenario_type: 'NGV',
+      file_path: '/demo/test/ngi/ngi_test_02.json',
+      file_name: 'ngi_test_02.json',
+      description: "Alan 'currencyDescription.id' için boş para birimi referansı testi",
+      scenario_type: 'NGI',
       expected_result: 'VALIDATION_ERROR',
-      expected_message: "Alan 'relatedDocument.branchDocumentSeries.id' için tekrarlı değer hatası: DOC-0001",
+      expected_message: "Alan 'currencyDescription.id' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_03.json',
+      file_name: 'ngi_test_03.json',
+      description: "Alan 'currencyDescription.id' için yanlış tipte para birimi referansı testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'currencyDescription.id' için geçersiz değer: 12345",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_04.json',
+      file_name: 'ngi_test_04.json',
+      description: "Alan 'financeCardType' için desteklenmeyen enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCardType' için geçersiz değer: __INVALID_ENUM__",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_05.json',
+      file_name: 'ngi_test_05.json',
+      description: "Alan 'financeCardType' için boş enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCardType' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_06.json',
+      file_name: 'ngi_test_06.json',
+      description: "Alan 'financeCardType' için yanlış tipte enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCardType' için geçersiz değer: 999",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_07.json',
+      file_name: 'ngi_test_07.json',
+      description: "Alan 'documentSpecialVariableValues' için desteklenmeyen enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'documentSpecialVariableValues' için geçersiz değer: __INVALID_ENUM__",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_08.json',
+      file_name: 'ngi_test_08.json',
+      description: "Alan 'documentSpecialVariableValues' için boş enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'documentSpecialVariableValues' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_09.json',
+      file_name: 'ngi_test_09.json',
+      description: "Alan 'documentSpecialVariableValues' için yanlış tipte enum değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'documentSpecialVariableValues' için geçersiz değer: 999",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_10.json',
+      file_name: 'ngi_test_10.json',
+      description: "Alan 'user.id' için geçersiz referans kimliği testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'user.id' için geçersiz değer: not-a-uuid",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_11.json',
+      file_name: 'ngi_test_11.json',
+      description: "Alan 'user.id' için boş referans değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'user.id' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_12.json',
+      file_name: 'ngi_test_12.json',
+      description: "Alan 'user.id' için yanlış tipte referans değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'user.id' için geçersiz değer: 12345",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_13.json',
+      file_name: 'ngi_test_13.json',
+      description: "Alan 'financeCard.financeCardType' için maksimum uzunluğu aşan değer testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCard.financeCardType' için geçersiz değer: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_14.json',
+      file_name: 'ngi_test_14.json',
+      description: "Alan 'financeCard.financeCardType' için boş metin testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCard.financeCardType' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_15.json',
+      file_name: 'ngi_test_15.json',
+      description: "Alan 'financeCard.financeCardType' için özel karakterlerden oluşan metin testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'financeCard.financeCardType' için geçersiz değer: !@#$%^&*()",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_16.json',
+      file_name: 'ngi_test_16.json',
+      description: "Alan 'cardCurrencyDescription.id' için geçersiz para birimi referansı testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'cardCurrencyDescription.id' için geçersiz değer: invalid-currency-id",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_17.json',
+      file_name: 'ngi_test_17.json',
+      description: "Alan 'cardCurrencyDescription.id' için boş para birimi referansı testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'cardCurrencyDescription.id' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_18.json',
+      file_name: 'ngi_test_18.json',
+      description: "Alan 'cardCurrencyDescription.id' için yanlış tipte para birimi referansı testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'cardCurrencyDescription.id' için geçersiz değer: 12345",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_19.json',
+      file_name: 'ngi_test_19.json',
+      description: "Alan 'checkNoteCaseCard.financeCardType' için maksimum uzunluğu aşan değer testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'checkNoteCaseCard.financeCardType' için geçersiz değer: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_20.json',
+      file_name: 'ngi_test_20.json',
+      description: "Alan 'checkNoteCaseCard.financeCardType' için boş kişi değeri testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'checkNoteCaseCard.financeCardType' için geçersiz değer: ",
+    },
+    {
+      file_path: '/demo/test/ngi/ngi_test_21.json',
+      file_name: 'ngi_test_21.json',
+      description: "Alan 'checkNoteCaseCard.financeCardType' için isim alanı için sayısal değer testi",
+      scenario_type: 'NGI',
+      expected_result: 'VALIDATION_ERROR',
+      expected_message: "Alan 'checkNoteCaseCard.financeCardType' için geçersiz değer: 123456",
     },
   ],
+  ngv: [],
   opt: [
     {
-      file_path: '/demo/repo_sample_suite/opt/opt_sample.json',
-      file_name: 'opt_sample.json',
+      file_path: '/demo/test/opt/opt_test_01.json',
+      file_name: 'opt_test_01.json',
       description: 'Tüm opsiyonel alanlar dolu senaryo',
+      scenario_type: 'OPT',
+      expected_result: 'SUCCESS',
+    },
+    {
+      file_path: '/demo/test/opt/opt_test_02.json',
+      file_name: 'opt_test_02.json',
+      description: 'Opsiyonel alanlar boş bırakılmış senaryo',
+      scenario_type: 'OPT',
+      expected_result: 'SUCCESS',
+    },
+    {
+      file_path: '/demo/test/opt/opt_test_03.json',
+      file_name: 'opt_test_03.json',
+      description: 'Karışık opsiyonel kombinasyon senaryosu',
+      scenario_type: 'OPT',
+      expected_result: 'SUCCESS',
+    },
+    {
+      file_path: '/demo/test/opt/opt_test_04.json',
+      file_name: 'opt_test_04.json',
+      description: 'Sadece Çekin Borçlusu dolu senaryo',
       scenario_type: 'OPT',
       expected_result: 'SUCCESS',
     },
@@ -571,14 +756,14 @@ const demoCaseContent: Record<string, string> = {
   bsc: JSON.stringify(
     {
       created_at: DEMO_TIMESTAMP,
-      description: 'BSC test senaryosu - repo_sample_suite (18 zorunlu alan)',
+      description: 'BSC test senaryosu - test (18 zorunlu alan)',
       expected_result: 'SUCCESS',
       generated_at: DEMO_TIMESTAMP,
       mandatory_fields_count: 18,
       scenario_type: 'BSC',
       test_data: DEMO_JSON_OBJECT,
-      test_name: 'repo_sample_suite',
-      variables_count: 7,
+      test_name: 'test',
+      variables_count: 48,
       version: '1.0',
     },
     null,
@@ -620,14 +805,14 @@ const demoCaseContent: Record<string, string> = {
 
 export const demoTestDirectories = [
   {
-    name: 'repo_sample_suite',
+    name: 'test',
     created_at: DEMO_TIMESTAMP,
   },
 ];
 
 export const demoTestGroups = [
   {
-    test_name: 'repo_sample_suite',
+    test_name: 'test',
     created_at: DEMO_TIMESTAMP,
     files: (['bsc', 'ngi', 'ngv', 'opt'] as const).flatMap((type) =>
       demoCaseCatalog[type].map((item) => ({
@@ -639,7 +824,7 @@ export const demoTestGroups = [
         expected_result: item.expected_result,
         expected_message: item.expected_message,
         file_path: item.file_path,
-        test_name: 'repo_sample_suite',
+        test_name: 'test',
       }))
     ),
   },
@@ -653,7 +838,7 @@ export const getDemoVariableFileContent = (name: string) => {
 };
 
 export const getDemoScenarioDetail = (filename: string) => {
-  if (!filename.includes('RepoSample')) {
+  if (!filename.includes('test')) {
     return {
       content: DEMO_SCENARIO_TEXT,
       metadata: {
@@ -673,14 +858,14 @@ export const getDemoJsonFileById = (id: number) =>
   demoJsonFiles.find((file) => file.id === id) || demoJsonFiles[0];
 
 export const getDemoBindingValidationResult = (): BindingValidationResult => ({
-  scenario_id: 'RepoSample',
+  scenario_id: 'test',
   scenario_path: demoScenarios[0].full_name || '',
   json_file_id: 1,
   variables_profile: 'variablesHeader',
   binding_profile_name: demoBindingProfile.name,
   binding_summary: demoAutoResolveResult.summary,
   auto_binding: demoAutoResolveResult,
-  validation_name: 'demo_binding_validation',
+  validation_name: 'test_binding_validation',
   validated_at: DEMO_TIMESTAMP,
   generator_results: {
     bsc: {
@@ -694,30 +879,30 @@ export const getDemoBindingValidationResult = (): BindingValidationResult => ({
     ngi: {
       generator: 'ngi',
       success: true,
-      result_count: 1,
-      output_files: [demoCaseCatalog.ngi[0].file_path || ''],
+      result_count: DEMO_CASE_COUNTS.ngi,
+      output_files: demoCaseCatalog.ngi.map((item) => item.file_path || ''),
       message: 'Demo NGI çıktısı hazır',
       duration_ms: 220,
     },
     ngv: {
       generator: 'ngv',
       success: true,
-      result_count: 1,
-      output_files: [demoCaseCatalog.ngv[0].file_path || ''],
-      message: 'Demo NGV çıktısı hazır',
+      result_count: DEMO_CASE_COUNTS.ngv,
+      output_files: demoCaseCatalog.ngv.map((item) => item.file_path || ''),
+      message: 'Bu örnek veri seti için NGV çıktısı üretilmedi',
       duration_ms: 205,
     },
     opt: {
       generator: 'opt',
       success: true,
-      result_count: 1,
-      output_files: [demoCaseCatalog.opt[0].file_path || ''],
+      result_count: DEMO_CASE_COUNTS.opt,
+      output_files: demoCaseCatalog.opt.map((item) => item.file_path || ''),
       message: 'Demo OPT çıktısı hazır',
       duration_ms: 170,
     },
   },
   overall_success: true,
-  report_path: '/demo/reports/demo_binding_validation.json',
+  report_path: '/demo/reports/test_binding_validation.json',
 });
 
 export const buildDemoGeneratorResult = (
@@ -728,7 +913,7 @@ export const buildDemoGeneratorResult = (
   const baseCases = demoCaseCatalog[normalizedType] || [];
   const generatedCases = baseCases.map((item) => ({
     ...item,
-    file_path: item.file_path?.replace('repo_sample_suite', request.test_name),
+    file_path: item.file_path?.replace('/demo/test/', `/demo/${request.test_name}/`),
   }));
 
   return {
