@@ -45,8 +45,21 @@ jobs:
       - name: Build frontend
         run: npm run build:pages
 
-      - name: Configure Pages
+      - name: Configure Pages and enable site
+        if: ${{ secrets.PAGES_ADMIN_TOKEN != '' }}
         uses: actions/configure-pages@v5
+        with:
+          token: ${{ secrets.PAGES_ADMIN_TOKEN }}
+          enablement: true
+
+      - name: Configure Pages
+        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        uses: actions/configure-pages@v5
+
+      - name: Pages bootstrap note
+        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        run: |
+          echo "::notice::If this repository has never enabled GitHub Pages before, set Settings > Pages > Source to GitHub Actions once or add a PAGES_ADMIN_TOKEN secret so the workflow can auto-enable Pages."
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

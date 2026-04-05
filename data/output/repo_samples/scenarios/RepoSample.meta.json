@@ -1,0 +1,2396 @@
+{
+  "scenario_name": "RepoSample",
+  "source_csv": "example.csv",
+  "generator_type": "nlp_hybrid",
+  "generated_at": "2026-04-05T17:33:38.881018",
+  "scenario_file": "RepoSample_20260405_173338.txt",
+  "fields": [
+    {
+      "field_name_tr": "Hareket Seri",
+      "field_name_en": "Movement Serial",
+      "field_type": "id",
+      "raw_type": "Alfenumerik String",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": 3,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "serial",
+        "person",
+        "hareket",
+        "seri",
+        "movement"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hareket Seri Movement Ser",
+          "label": "ORG",
+          "score": 0.9223
+        },
+        {
+          "text": "Al",
+          "label": "ORG",
+          "score": 0.945
+        },
+        {
+          "text": "##umerik String",
+          "label": "ORG",
+          "score": 0.7017
+        },
+        {
+          "text": "K",
+          "label": "ORG",
+          "score": 0.6605
+        },
+        {
+          "text": "##AL",
+          "label": "ORG",
+          "score": 0.5253
+        },
+        {
+          "text": "Seri Tanımlaması",
+          "label": "ORG",
+          "score": 0.7232
+        },
+        {
+          "text": "Kullanıcı Ser",
+          "label": "ORG",
+          "score": 0.8128
+        },
+        {
+          "text": "Seçiniz",
+          "label": "ORG",
+          "score": 0.6265
+        },
+        {
+          "text": "Kullanıcı Ser",
+          "label": "ORG",
+          "score": 0.8413
+        },
+        {
+          "text": "tan",
+          "label": "ORG",
+          "score": 0.5426
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Seri (Movement Serial) alanı maksimum 3 karakterli olmalıdır.",
+        "Hareket Seri (Movement Serial) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Hareket Seri (Movement Serial) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfenumerik String | 3 | İŞ KURALI :Seri Tanımlaması yok ise Standart A serisi gelecek.Kullanıcı Seri tanımlaması yapmış ve varsayılan seri seçmemiş ise \"Seçiniz\" değeri gelecek.Kullanıcı Seri tanımlaması yapmış ve varsayılan seri tanımlamış ise ilgili seri değeri gelecek. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hareket Belge No",
+      "field_name_en": "Movement Doc Nr",
+      "field_type": "id",
+      "raw_type": "Alfenumerik String",
+      "required": true,
+      "optional": false,
+      "unique": true,
+      "max_len": 10,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "serial",
+        "hareket",
+        "belge",
+        "no",
+        "movement",
+        "doc",
+        "nr"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hareket Belge No Movement",
+          "label": "ORG",
+          "score": 0.9597
+        },
+        {
+          "text": "Al",
+          "label": "ORG",
+          "score": 0.728
+        },
+        {
+          "text": "##umerik String İ",
+          "label": "ORG",
+          "score": 0.6968
+        },
+        {
+          "text": "KURALI",
+          "label": "ORG",
+          "score": 0.6757
+        },
+        {
+          "text": "##tta Ser",
+          "label": "ORG",
+          "score": 0.5489
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Belge No (Movement Doc Nr) alanı maksimum 10 karakterli olmalıdır.",
+        "Hareket Belge No (Movement Doc Nr) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Hareket Belge No (Movement Doc Nr) alanı doldurulması zorunludur.",
+        "Hareket Belge No (Movement Doc Nr) alanı tekildir."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfenumerik String | 10 | İŞ KURALI : Her yeni kayıtta Seri No alanında seçilen seriye göre sistem tarafından 1 artırılır. | Zorunlu | Tekil (Seri Bazında)",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Tarih",
+      "field_name_en": "Date",
+      "field_type": "date",
+      "raw_type": "Date",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "tarih",
+        "time"
+      ],
+      "ner_entities": [
+        {
+          "text": "Tari",
+          "label": "LOC",
+          "score": 0.4511
+        },
+        {
+          "text": "Ö",
+          "label": "LOC",
+          "score": 0.422
+        },
+        {
+          "text": "##ndeğ",
+          "label": "ORG",
+          "score": 0.3394
+        }
+      ],
+      "scenario_lines": [
+        "Tarih (Date) alanı geçerli bir tarih formatında olmalıdır.",
+        "Tarih (Date) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.98,
+      "source_text": "Date | Öndeğer olarak sistemdeki işlem tarihi gelir | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Saat",
+      "field_name_en": "Time",
+      "field_type": "date",
+      "raw_type": "Time",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "time",
+        "saat"
+      ],
+      "ner_entities": [
+        {
+          "text": "Sa",
+          "label": "LOC",
+          "score": 0.7703
+        },
+        {
+          "text": "Öndeğ",
+          "label": "ORG",
+          "score": 0.3834
+        }
+      ],
+      "scenario_lines": [
+        "Saat (Time) alanı geçerli bir tarih formatında olmalıdır.",
+        "Saat (Time) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.93,
+      "source_text": "Time | Öndeğer olarak sistemdeki işlem saati gelir | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hareket Belge Açıklama",
+      "field_name_en": "Movement Doc Description",
+      "field_type": "string",
+      "raw_type": "String",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": 255,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "hareket",
+        "belge",
+        "aciklama",
+        "movement",
+        "doc",
+        "description"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hare",
+          "label": "MISC",
+          "score": 0.6193
+        },
+        {
+          "text": "##ket Belge Açıklama Movement",
+          "label": "ORG",
+          "score": 0.755
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Belge Açıklama (Movement Doc Description) alanı maksimum 255 karakterli olmalıdır.",
+        "Hareket Belge Açıklama (Movement Doc Description) alanına sadece metin girişi yapılabilir.",
+        "Hareket Belge Açıklama (Movement Doc Description) alanı opsiyoneldir."
+      ],
+      "confidence": 0.97,
+      "source_text": "String | max 255 | Opsiyonel | -",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hareket Para Birimi",
+      "field_name_en": "Currency Description",
+      "field_type": "id",
+      "raw_type": null,
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "person",
+        "hareket",
+        "para",
+        "birimi",
+        "description"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hare",
+          "label": "MISC",
+          "score": 0.4792
+        },
+        {
+          "text": "##ket Para B",
+          "label": "ORG",
+          "score": 0.6714
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.6791
+        },
+        {
+          "text": "##mi",
+          "label": "ORG",
+          "score": 0.54
+        },
+        {
+          "text": "Ö",
+          "label": "LOC",
+          "score": 0.4485
+        },
+        {
+          "text": "##ndeğ",
+          "label": "ORG",
+          "score": 0.3423
+        },
+        {
+          "text": "Kullanıcı",
+          "label": "LOC",
+          "score": 0.5954
+        },
+        {
+          "text": "B",
+          "label": "ORG",
+          "score": 0.6319
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.6616
+        },
+        {
+          "text": "##mler",
+          "label": "ORG",
+          "score": 0.5674
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Para Birimi (Currency Description) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Hareket Para Birimi (Currency Description) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.88,
+      "source_text": "Öndeğeri TRY olarak gelir. Kullanıcı isterse 1.6. Para Birimler listesinden seçim yapabilir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hareket Kur",
+      "field_name_en": "Currency Exchange Rate",
+      "field_type": "number",
+      "raw_type": null,
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "person",
+        "hareket",
+        "kur",
+        "exchange",
+        "rate",
+        "check"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hare",
+          "label": "MISC",
+          "score": 0.6363
+        },
+        {
+          "text": "##ket",
+          "label": "ORG",
+          "score": 0.4607
+        },
+        {
+          "text": "Hare",
+          "label": "MISC",
+          "score": 0.6194
+        },
+        {
+          "text": "Para B",
+          "label": "ORG",
+          "score": 0.6358
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.4819
+        },
+        {
+          "text": "##mi",
+          "label": "ORG",
+          "score": 0.4685
+        },
+        {
+          "text": "B",
+          "label": "ORG",
+          "score": 0.8516
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.3773
+        },
+        {
+          "text": "##mler",
+          "label": "ORG",
+          "score": 0.5303
+        },
+        {
+          "text": "Ön De",
+          "label": "ORG",
+          "score": 0.4431
+        },
+        {
+          "text": "Ku",
+          "label": "ORG",
+          "score": 0.733
+        },
+        {
+          "text": "##cı",
+          "label": "ORG",
+          "score": 0.5231
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Kur (Currency Exchange Rate) alanına sadece sayısal değer girilebilir.",
+        "Hareket Kur (Currency Exchange Rate) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.92,
+      "source_text": "Hareket Para Birimi TRY ise bu alan readonly \"1,00000\" değeri getirilmelidir. TRY dışında bir değer ise 1.6. Para Birimler\"Ön Değer Kur\" alanı getirilir. Kullanıcı diğer kur değerlerinden birini seçebilir veya manuel kur verisi girebilir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Kart Tipi",
+      "field_name_en": "Card Type",
+      "field_type": "enum",
+      "raw_type": "Enum değer listesinden seçilir:MüşteriTedarikçiGelir/Gider",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "card",
+        "kart",
+        "person"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ka",
+          "label": "MISC",
+          "score": 0.5998
+        },
+        {
+          "text": "Müşteri",
+          "label": "LOC",
+          "score": 0.7875
+        },
+        {
+          "text": "##T",
+          "label": "ORG",
+          "score": 0.4104
+        },
+        {
+          "text": "##ikçi",
+          "label": "LOC",
+          "score": 0.4765
+        },
+        {
+          "text": "##G",
+          "label": "ORG",
+          "score": 0.6423
+        },
+        {
+          "text": "##r",
+          "label": "ORG",
+          "score": 0.497
+        },
+        {
+          "text": "G",
+          "label": "LOC",
+          "score": 0.4614
+        },
+        {
+          "text": "##ider",
+          "label": "ORG",
+          "score": 0.7469
+        },
+        {
+          "text": "Müşter",
+          "label": "LOC",
+          "score": 0.686
+        },
+        {
+          "text": "##i",
+          "label": "ORG",
+          "score": 0.5504
+        }
+      ],
+      "scenario_lines": [
+        "Kart Tipi (Card Type) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Enum değer listesinden seçilir:MüşteriTedarikçiGelir/Gider | Müşteri | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Kart Kod - Ad",
+      "field_name_en": "Card Code - Name",
+      "field_type": "id",
+      "raw_type": "Kart Tipine bağlı olarak4.1.1 Müşteri Kartları4.1.3 Tedarikçi Kartları4.1.11 Gelir/Gider Kartılistesinden seçilirSeçim ekranında görüntülenmesi gereken veri \"Kart Kategori Kodu.Kod - Kart Ad (Para Birimi) - Bakiye (Borç/Alacak) \" şeklinde olmalı ve kullanıcı bu seçim ekranında görüntülenen kartların Bakiye bilgisini de görebilmelidir.Örn:120.01.0001- X MÜŞTERİ (TRY) - 1.000,00 (B)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "person",
+        "card",
+        "kart",
+        "kod",
+        "ad",
+        "code",
+        "name"
+      ],
+      "ner_entities": [
+        {
+          "text": "##ine",
+          "label": "ORG",
+          "score": 0.6021
+        },
+        {
+          "text": "##l",
+          "label": "LOC",
+          "score": 0.4363
+        },
+        {
+          "text": "M",
+          "label": "ORG",
+          "score": 0.6222
+        },
+        {
+          "text": "##ü",
+          "label": "LOC",
+          "score": 0.3816
+        },
+        {
+          "text": "##şteri Kartları",
+          "label": "ORG",
+          "score": 0.6979
+        },
+        {
+          "text": "Tedarikçi Kartları",
+          "label": "ORG",
+          "score": 0.716
+        },
+        {
+          "text": "G",
+          "label": "ORG",
+          "score": 0.6284
+        },
+        {
+          "text": "Gider Kart",
+          "label": "ORG",
+          "score": 0.6107
+        },
+        {
+          "text": "##listesi",
+          "label": "ORG",
+          "score": 0.6147
+        },
+        {
+          "text": "Kate",
+          "label": "ORG",
+          "score": 0.4828
+        },
+        {
+          "text": "Ka",
+          "label": "MISC",
+          "score": 0.7722
+        },
+        {
+          "text": "Ba",
+          "label": "PER",
+          "score": 0.4798
+        },
+        {
+          "text": "##ye",
+          "label": "ORG",
+          "score": 0.3659
+        },
+        {
+          "text": "Borç",
+          "label": "LOC",
+          "score": 0.6555
+        },
+        {
+          "text": "Al",
+          "label": "LOC",
+          "score": 0.5876
+        },
+        {
+          "text": "##k",
+          "label": "ORG",
+          "score": 0.5738
+        },
+        {
+          "text": "Bakiye",
+          "label": "ORG",
+          "score": 0.5763
+        }
+      ],
+      "scenario_lines": [
+        "Kart Kod - Ad (Card Code - Name) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Kart Kod - Ad (Card Code - Name) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.95,
+      "source_text": "Kart Tipine bağlı olarak4.1.1 Müşteri Kartları4.1.3 Tedarikçi Kartları4.1.11 Gelir/Gider Kartılistesinden seçilirSeçim ekranında görüntülenmesi gereken veri \"Kart Kategori Kodu.Kod - Kart Ad (Para Birimi) - Bakiye (Borç/Alacak) \" şeklinde olmalı ve kullanıcı bu seçim ekranında görüntülenen kartların Bakiye bilgisini de görebilmelidir.Örn:120.01.0001- X MÜŞTERİ (TRY) - 1.000,00 (B) | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Kart Para Birimi",
+      "field_name_en": "Currency",
+      "field_type": "id",
+      "raw_type": "Kart Kod - Ad alanında seçilen kartın para birimi buraya getirilir ve değiştirilemez.",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "card",
+        "kart",
+        "para",
+        "birimi"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ka",
+          "label": "MISC",
+          "score": 0.569
+        },
+        {
+          "text": "Para Birimi",
+          "label": "MISC",
+          "score": 0.5911
+        }
+      ],
+      "scenario_lines": [
+        "Kart Para Birimi (Currency) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Kart Para Birimi (Currency) alanı opsiyoneldir."
+      ],
+      "confidence": 0.86,
+      "source_text": "Kart Kod - Ad alanında seçilen kartın para birimi buraya getirilir ve değiştirilemez. | Readonly",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Kart Kur",
+      "field_name_en": "Rate",
+      "field_type": "number",
+      "raw_type": "Para Birimi alanında gelen değer TRY dışında bir değer ise 1.6. Para Birimler listesinden \"Ön Değer Kur\" alanı getirilir. Kullanıcı diğer kur değerlerinden birini seçebilir veya manuel kur verisi girebilir.",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "person",
+        "card",
+        "kart",
+        "kur",
+        "rate",
+        "check"
+      ],
+      "ner_entities": [
+        {
+          "text": "Para B",
+          "label": "ORG",
+          "score": 0.4975
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.581
+        },
+        {
+          "text": "##mi",
+          "label": "ORG",
+          "score": 0.4848
+        },
+        {
+          "text": "Para B",
+          "label": "ORG",
+          "score": 0.6029
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.6425
+        },
+        {
+          "text": "##mler",
+          "label": "ORG",
+          "score": 0.5926
+        },
+        {
+          "text": "Ön Değer Kur",
+          "label": "ORG",
+          "score": 0.629
+        },
+        {
+          "text": "Kullan",
+          "label": "ORG",
+          "score": 0.4805
+        },
+        {
+          "text": "##ı",
+          "label": "LOC",
+          "score": 0.3717
+        },
+        {
+          "text": "##cı",
+          "label": "ORG",
+          "score": 0.4731
+        }
+      ],
+      "scenario_lines": [
+        "Kart Kur (Rate) alanına sadece sayısal değer girilebilir.",
+        "Kart Kur (Rate) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.92,
+      "source_text": "Para Birimi alanında gelen değer TRY dışında bir değer ise 1.6. Para Birimler listesinden \"Ön Değer Kur\" alanı getirilir. Kullanıcı diğer kur değerlerinden birini seçebilir veya manuel kur verisi girebilir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Çek/Senet Kasa Kart Kod - Ad",
+      "field_name_en": "Check/Note Case Card Code - Name",
+      "field_type": "id",
+      "raw_type": "Bu alanda 4.1.9 Çek/Senet Kasa Kartı larından Çek / Senet Kasa Kartı Tipi \"Alacak Çekleri\" olarak belirlenenlerden ve Para Birimi Hareket Para Birimi olanlardan seçim yapılmalıdır.",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "currency",
+        "card",
+        "check",
+        "cek",
+        "senet",
+        "kasa",
+        "kart",
+        "kod",
+        "ad",
+        "note"
+      ],
+      "ner_entities": [
+        {
+          "text": "Sen",
+          "label": "ORG",
+          "score": 0.5999
+        },
+        {
+          "text": "Ka",
+          "label": "ORG",
+          "score": 0.4384
+        },
+        {
+          "text": "Ka",
+          "label": "MISC",
+          "score": 0.4617
+        },
+        {
+          "text": "Senet Ka",
+          "label": "ORG",
+          "score": 0.4981
+        },
+        {
+          "text": "Ka",
+          "label": "MISC",
+          "score": 0.3181
+        },
+        {
+          "text": "Senet Kasa Ka",
+          "label": "ORG",
+          "score": 0.462
+        },
+        {
+          "text": "Alacak Ç",
+          "label": "ORG",
+          "score": 0.6792
+        },
+        {
+          "text": "##leri",
+          "label": "ORG",
+          "score": 0.5075
+        },
+        {
+          "text": "B",
+          "label": "ORG",
+          "score": 0.6071
+        },
+        {
+          "text": "##iri",
+          "label": "MISC",
+          "score": 0.4667
+        },
+        {
+          "text": "B",
+          "label": "ORG",
+          "score": 0.5546
+        }
+      ],
+      "scenario_lines": [
+        "Çek/Senet Kasa Kart Kod - Ad (Check/Note Case Card Code - Name) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Çek/Senet Kasa Kart Kod - Ad (Check/Note Case Card Code - Name) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.95,
+      "source_text": "Bu alanda 4.1.9 Çek/Senet Kasa Kartı larından Çek / Senet Kasa Kartı Tipi \"Alacak Çekleri\" olarak belirlenenlerden ve Para Birimi Hareket Para Birimi olanlardan seçim yapılmalıdır. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Devir Bordrosu",
+      "field_name_en": "Turnover Check",
+      "field_type": "bool",
+      "raw_type": "Boolean (Evet/Hayır)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "check",
+        "devir",
+        "bordrosu",
+        "turnover"
+      ],
+      "ner_entities": [
+        {
+          "text": "Devir Bord",
+          "label": "ORG",
+          "score": 0.7441
+        },
+        {
+          "text": "Eve",
+          "label": "PER",
+          "score": 0.5856
+        },
+        {
+          "text": "Hay",
+          "label": "PER",
+          "score": 0.4847
+        },
+        {
+          "text": "Hay",
+          "label": "PER",
+          "score": 0.4045
+        }
+      ],
+      "scenario_lines": [
+        "Devir Bordrosu (Turnover Check) alanı evet/hayır veya true/false tipinde olmalıdır.",
+        "Devir Bordrosu (Turnover Check) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Boolean (Evet/Hayır) | Hayır | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Kullanıcı",
+      "field_name_en": "User Name",
+      "field_type": "string",
+      "raw_type": "İşlem yapan kullanıcı (Otomatik olarak getirilecek, kullanıcı değiştirilemeyecek)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "person",
+        "kullanici",
+        "user",
+        "name"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ku",
+          "label": "ORG",
+          "score": 0.6124
+        },
+        {
+          "text": "##llan",
+          "label": "LOC",
+          "score": 0.4192
+        },
+        {
+          "text": "##ıcı",
+          "label": "ORG",
+          "score": 0.501
+        },
+        {
+          "text": "İş",
+          "label": "PER",
+          "score": 0.5707
+        },
+        {
+          "text": "##lem",
+          "label": "ORG",
+          "score": 0.4775
+        },
+        {
+          "text": "k",
+          "label": "PER",
+          "score": 0.479
+        },
+        {
+          "text": "##c",
+          "label": "ORG",
+          "score": 0.3593
+        },
+        {
+          "text": "##k o",
+          "label": "ORG",
+          "score": 0.5526
+        }
+      ],
+      "scenario_lines": [
+        "Kullanıcı (User Name) alanına sadece metin girişi yapılabilir.",
+        "Kullanıcı (User Name) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.78,
+      "source_text": "İşlem yapan kullanıcı (Otomatik olarak getirilecek, kullanıcı değiştirilemeyecek) | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Ortalama Vade",
+      "field_name_en": "Average Due Date",
+      "field_type": "date",
+      "raw_type": "Numerik",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "ortalama",
+        "vade",
+        "average",
+        "due"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ortalama Vade",
+          "label": "ORG",
+          "score": 0.7568
+        },
+        {
+          "text": "İş Kuralları",
+          "label": "ORG",
+          "score": 0.6729
+        }
+      ],
+      "scenario_lines": [
+        "Ortalama Vade (Average Due Date) alanı geçerli bir tarih formatında olmalıdır.",
+        "Ortalama Vade (Average Due Date) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.98,
+      "source_text": "Numerik | İş Kurallarında tarif edilmiştir. | Zorunlu - Hesaplanan Alan",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Ortalama Vade Gün",
+      "field_name_en": "Average Number of Due Days",
+      "field_type": "number",
+      "raw_type": "Numerik",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "ortalama",
+        "vade",
+        "gun",
+        "average",
+        "number",
+        "of",
+        "due",
+        "days"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ortalama Vade Gün",
+          "label": "ORG",
+          "score": 0.9039
+        },
+        {
+          "text": "##rik İş Kuralları",
+          "label": "ORG",
+          "score": 0.7151
+        }
+      ],
+      "scenario_lines": [
+        "Ortalama Vade Gün (Average Number of Due Days) alanına sadece sayısal değer girilebilir.",
+        "Ortalama Vade Gün (Average Number of Due Days) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Numerik | İş Kurallarında tarif edilmiştir. | Zorunlu - Hesaplanan Alan",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Çek Adedi",
+      "field_name_en": "Number of Checks",
+      "field_type": "number",
+      "raw_type": "Numerik",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "check",
+        "cek",
+        "adedi",
+        "number",
+        "of",
+        "checks"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ç",
+          "label": "PER",
+          "score": 0.3756
+        },
+        {
+          "text": "Ad",
+          "label": "ORG",
+          "score": 0.4963
+        },
+        {
+          "text": "##rik",
+          "label": "ORG",
+          "score": 0.7017
+        }
+      ],
+      "scenario_lines": [
+        "Çek Adedi (Number of Checks) alanına sadece sayısal değer girilebilir.",
+        "Çek Adedi (Number of Checks) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Numerik | Detay bilgilerindeki satır sayısı değeridir. | Zorunlu - Hesaplanan Alan",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Toplam Tutar",
+      "field_name_en": "Total Amount",
+      "field_type": "number",
+      "raw_type": "Numerik(virgülden sonra iki digit olarak detayların Tutar toplamları 1.500,00 TRY örneğinde olduğu gibi gösterilmelidir.)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "amount",
+        "toplam",
+        "tutar",
+        "total"
+      ],
+      "ner_entities": [
+        {
+          "text": "Top",
+          "label": "PER",
+          "score": 0.2791
+        },
+        {
+          "text": "##lam Tu",
+          "label": "ORG",
+          "score": 0.6505
+        },
+        {
+          "text": "Tu",
+          "label": "MISC",
+          "score": 0.3896
+        }
+      ],
+      "scenario_lines": [
+        "Toplam Tutar (Total Amount) alanına sadece sayısal değer girilebilir.",
+        "Toplam Tutar (Total Amount) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Numerik(virgülden sonra iki digit olarak detayların Tutar toplamları 1.500,00 TRY örneğinde olduğu gibi gösterilmelidir.) | Highlight alanında gösterilecektir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Fatura Kapama Belge No",
+      "field_name_en": "Related Invoice Document",
+      "field_type": "id",
+      "raw_type": "Eğer Alacak Çekleri Giriş Fatura üzerinden yapılan Fatura Kapama ile oluşturulmuş ise bu faturaya ait Belge Seri No bilgisi bu alanda link olarak gösterilir. Kullanıcı bu alanda linke basarak ilgiyi belgeye ulaşabilmelidir.",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "serial",
+        "person",
+        "fatura",
+        "kapama",
+        "belge",
+        "no",
+        "related",
+        "invoice"
+      ],
+      "ner_entities": [
+        {
+          "text": "##ura Kapama Belge",
+          "label": "ORG",
+          "score": 0.8429
+        },
+        {
+          "text": "Eğer Alacak Çekleri Giriş",
+          "label": "ORG",
+          "score": 0.6749
+        },
+        {
+          "text": "##ura Kapama",
+          "label": "ORG",
+          "score": 0.8633
+        },
+        {
+          "text": "Bel",
+          "label": "LOC",
+          "score": 0.4385
+        },
+        {
+          "text": "##ge",
+          "label": "ORG",
+          "score": 0.7734
+        },
+        {
+          "text": "Ku",
+          "label": "ORG",
+          "score": 0.7409
+        },
+        {
+          "text": "##c",
+          "label": "ORG",
+          "score": 0.7073
+        },
+        {
+          "text": "Bağ",
+          "label": "ORG",
+          "score": 0.7482
+        },
+        {
+          "text": "##l",
+          "label": "LOC",
+          "score": 0.484
+        },
+        {
+          "text": "##ı Belgeler",
+          "label": "ORG",
+          "score": 0.7058
+        }
+      ],
+      "scenario_lines": [
+        "Fatura Kapama Belge No (Related Invoice Document) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Fatura Kapama Belge No (Related Invoice Document) alanı opsiyoneldir."
+      ],
+      "confidence": 0.95,
+      "source_text": "Eğer Alacak Çekleri Giriş Fatura üzerinden yapılan Fatura Kapama ile oluşturulmuş ise bu faturaya ait Belge Seri No bilgisi bu alanda link olarak gösterilir. Kullanıcı bu alanda linke basarak ilgiyi belgeye ulaşabilmelidir. | Highlight Bağlı Belgeler alanında gösterilecektir. | Opsiyonel",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Muhasebeleşme Durumu",
+      "field_name_en": "Accounting Status",
+      "field_type": "bool",
+      "raw_type": "Boolean (Evet/Hayır)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "status",
+        "muhasebelesme",
+        "durumu",
+        "accounting"
+      ],
+      "ner_entities": [
+        {
+          "text": "Muhaseb",
+          "label": "ORG",
+          "score": 0.5373
+        },
+        {
+          "text": "##ş",
+          "label": "ORG",
+          "score": 0.3257
+        },
+        {
+          "text": "Du",
+          "label": "ORG",
+          "score": 0.4035
+        },
+        {
+          "text": "Eve",
+          "label": "PER",
+          "score": 0.6062
+        },
+        {
+          "text": "Hay",
+          "label": "PER",
+          "score": 0.6212
+        },
+        {
+          "text": "##kt",
+          "label": "ORG",
+          "score": 0.5463
+        }
+      ],
+      "scenario_lines": [
+        "Muhasebeleşme Durumu (Accounting Status) alanı evet/hayır veya true/false tipinde olmalıdır.",
+        "Muhasebeleşme Durumu (Accounting Status) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Boolean (Evet/Hayır) | HayırHighlight alanda gösterilecektir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Özel Değişkenler",
+      "field_name_en": "Special Variables",
+      "field_type": "enum",
+      "raw_type": "Liste (Özel Değişkenler)1.13.3. Özel Değişken Belge Tanımı listesinde \"Belge Tipi\"=\"Alacak Çekleri Giriş\" olan değişkenler listelenir.Bu bölümde yetkisi olan kullanıcı \"1.13.3. Özel Değişken Belge Tanımı\" ekranına yönlendirilerek ekleme ve düzenleme yapabilir.",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "person",
+        "ozel",
+        "degiskenler",
+        "special",
+        "variables"
+      ],
+      "ner_entities": [
+        {
+          "text": "Özel De",
+          "label": "ORG",
+          "score": 0.6788
+        },
+        {
+          "text": "##kenler",
+          "label": "ORG",
+          "score": 0.4847
+        },
+        {
+          "text": "Özel De",
+          "label": "ORG",
+          "score": 0.5297
+        },
+        {
+          "text": "##ken",
+          "label": "ORG",
+          "score": 0.3637
+        },
+        {
+          "text": "Özel De",
+          "label": "ORG",
+          "score": 0.5914
+        },
+        {
+          "text": "##ken Belge Tan",
+          "label": "ORG",
+          "score": 0.6205
+        },
+        {
+          "text": "##ım",
+          "label": "MISC",
+          "score": 0.343
+        },
+        {
+          "text": "Bel",
+          "label": "LOC",
+          "score": 0.6267
+        },
+        {
+          "text": "##ge",
+          "label": "ORG",
+          "score": 0.3525
+        },
+        {
+          "text": "Alacak Çekleri Giriş",
+          "label": "ORG",
+          "score": 0.8889
+        },
+        {
+          "text": "Özel De",
+          "label": "ORG",
+          "score": 0.7494
+        },
+        {
+          "text": "##ken Belge Tan",
+          "label": "ORG",
+          "score": 0.6579
+        },
+        {
+          "text": "##m",
+          "label": "MISC",
+          "score": 0.3108
+        }
+      ],
+      "scenario_lines": [
+        "Özel Değişkenler (Special Variables) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.3679,
+      "source_text": "Liste (Özel Değişkenler)1.13.3. Özel Değişken Belge Tanımı listesinde \"Belge Tipi\"=\"Alacak Çekleri Giriş\" olan değişkenler listelenir.Bu bölümde yetkisi olan kullanıcı \"1.13.3. Özel Değişken Belge Tanımı\" ekranına yönlendirilerek ekleme ve düzenleme yapabilir. | 1.13.3. Özel Değişken Belge Tanımı' dan gelen değişkenin zorunluluk durumuna göre karar verilir",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Ekli Belgeler",
+      "field_name_en": "Attachments",
+      "field_type": "enum",
+      "raw_type": "Binary List (jpg, png, pdf)",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "attachment",
+        "ekli",
+        "belgeler",
+        "attachments"
+      ],
+      "ner_entities": [
+        {
+          "text": "E",
+          "label": "MISC",
+          "score": 0.5112
+        },
+        {
+          "text": "##k",
+          "label": "PER",
+          "score": 0.4066
+        },
+        {
+          "text": "##li",
+          "label": "ORG",
+          "score": 0.3535
+        },
+        {
+          "text": "Bel",
+          "label": "PER",
+          "score": 0.452
+        },
+        {
+          "text": "##geler",
+          "label": "ORG",
+          "score": 0.4381
+        }
+      ],
+      "scenario_lines": [
+        "Ekli Belgeler (Attachments) alanı opsiyoneldir."
+      ],
+      "confidence": 0.2978,
+      "source_text": "Binary List (jpg, png, pdf) | Opsiyonel",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Belge",
+      "field_name_en": "Attachment",
+      "field_type": "id",
+      "raw_type": "Binary (jpg, png, pdf)Yüklenen Dosya",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "attachment",
+        "belge"
+      ],
+      "ner_entities": [
+        {
+          "text": "Bel",
+          "label": "MISC",
+          "score": 0.5929
+        },
+        {
+          "text": "##ge",
+          "label": "ORG",
+          "score": 0.5652
+        },
+        {
+          "text": "Yüklenen Dosya",
+          "label": "ORG",
+          "score": 0.653
+        }
+      ],
+      "scenario_lines": [
+        "Belge (Attachment) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Belge (Attachment) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.1863,
+      "source_text": "Binary (jpg, png, pdf)Yüklenen Dosya | Ekli Belgeler içinde Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Belge Adı",
+      "field_name_en": "Doc Name",
+      "field_type": "string",
+      "raw_type": "Alfenumerik String",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "attachment",
+        "belge",
+        "adi",
+        "doc",
+        "name"
+      ],
+      "ner_entities": [
+        {
+          "text": "Belge Ad",
+          "label": "ORG",
+          "score": 0.72
+        },
+        {
+          "text": "Al",
+          "label": "ORG",
+          "score": 0.7308
+        },
+        {
+          "text": "##umerik",
+          "label": "ORG",
+          "score": 0.5435
+        },
+        {
+          "text": "Y",
+          "label": "ORG",
+          "score": 0.6477
+        },
+        {
+          "text": "##klenen",
+          "label": "ORG",
+          "score": 0.5991
+        }
+      ],
+      "scenario_lines": [
+        "Belge Adı (Doc Name) alanına sadece metin girişi yapılabilir.",
+        "Belge Adı (Doc Name) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfenumerik String | Yüklenen dosya ismini alır | Ekli Belgeler içinde Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Belge Açıklaması",
+      "field_name_en": "Doc Description",
+      "field_type": "string",
+      "raw_type": "Alfenumerik String",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": 255,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "belge",
+        "aciklamasi",
+        "doc",
+        "description"
+      ],
+      "ner_entities": [
+        {
+          "text": "Belge Açıklaması",
+          "label": "ORG",
+          "score": 0.9469
+        },
+        {
+          "text": "Al",
+          "label": "ORG",
+          "score": 0.429
+        }
+      ],
+      "scenario_lines": [
+        "Belge Açıklaması (Doc Description) alanı maksimum 255 karakterli olmalıdır.",
+        "Belge Açıklaması (Doc Description) alanına sadece metin girişi yapılabilir.",
+        "Belge Açıklaması (Doc Description) alanı opsiyoneldir."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfenumerik String | max 255 | Opsiyonel",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Ekleyen Kullanıcı",
+      "field_name_en": "User",
+      "field_type": "id",
+      "raw_type": "Kullanıcı",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "person",
+        "ekleyen",
+        "kullanici",
+        "user"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ekleyen Kullanıcı User Kullanıcı Giriş",
+          "label": "ORG",
+          "score": 0.8239
+        },
+        {
+          "text": "##c",
+          "label": "ORG",
+          "score": 0.4357
+        }
+      ],
+      "scenario_lines": [
+        "Ekleyen Kullanıcı (User) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Ekleyen Kullanıcı (User) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.9,
+      "source_text": "Kullanıcı | Giriş yapan kullanıcı bilgisi sistem tarafından getirilir | Ekli Belgeler içinde Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Ekleme Tarihi",
+      "field_name_en": "Attached Date",
+      "field_type": "date",
+      "raw_type": "Date (GG/AA/YYYY)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "attachment",
+        "ekleme",
+        "tarihi",
+        "attached",
+        "time"
+      ],
+      "ner_entities": [
+        {
+          "text": "E",
+          "label": "MISC",
+          "score": 0.8842
+        },
+        {
+          "text": "##kleme",
+          "label": "ORG",
+          "score": 0.4551
+        },
+        {
+          "text": "Ta",
+          "label": "MISC",
+          "score": 0.6566
+        }
+      ],
+      "scenario_lines": [
+        "Ekleme Tarihi (Attached Date) alanı geçerli bir tarih formatında olmalıdır.",
+        "Ekleme Tarihi (Attached Date) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.98,
+      "source_text": "Date (GG/AA/YYYY) | Kayıt tarihi sistem tarafından otomatik olarak getirilir | Ekli Belgeler içinde Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Detay Bilgiler",
+      "field_name_en": "Detail Info",
+      "field_type": "enum",
+      "raw_type": "Liste",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "detay",
+        "bilgiler",
+        "detail"
+      ],
+      "ner_entities": [
+        {
+          "text": "##ay Bilgiler",
+          "label": "ORG",
+          "score": 0.818
+        }
+      ],
+      "scenario_lines": [
+        "Detay Bilgiler (Detail Info) alanı opsiyoneldir."
+      ],
+      "confidence": 0.3453,
+      "source_text": "Liste",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Çek No",
+      "field_name_en": "Check Nr",
+      "field_type": "id",
+      "raw_type": "Alfanumerik",
+      "required": true,
+      "optional": false,
+      "unique": true,
+      "max_len": 15,
+      "min_len": 1,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "serial",
+        "check",
+        "cek",
+        "no",
+        "nr"
+      ],
+      "ner_entities": [
+        {
+          "text": "Ç",
+          "label": "ORG",
+          "score": 0.6553
+        },
+        {
+          "text": "##num",
+          "label": "ORG",
+          "score": 0.4655
+        },
+        {
+          "text": "##k",
+          "label": "ORG",
+          "score": 0.4925
+        }
+      ],
+      "scenario_lines": [
+        "Çek No (Check Nr) alanı en az 1 karakterli olmalıdır.",
+        "Çek No (Check Nr) alanı maksimum 15 karakterli olmalıdır.",
+        "Çek No (Check Nr) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Çek No (Check Nr) alanı doldurulması zorunludur.",
+        "Çek No (Check Nr) alanı tekildir."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfanumerik | min1- max15 | Zorunlu | Tekil",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Çek Türü",
+      "field_name_en": "Check Type",
+      "field_type": "enum",
+      "raw_type": "Enum Değer ListesiNormalTeminat",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "check",
+        "cek",
+        "turu"
+      ],
+      "ner_entities": [
+        {
+          "text": "Çek T",
+          "label": "ORG",
+          "score": 0.8281
+        },
+        {
+          "text": "##rü",
+          "label": "ORG",
+          "score": 0.5153
+        }
+      ],
+      "scenario_lines": [
+        "Çek Türü (Check Type) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Enum Değer ListesiNormalTeminat | Normal | Zorunlu | -",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Alınış Tarihi",
+      "field_name_en": "Date",
+      "field_type": "date",
+      "raw_type": "Date",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "alinis",
+        "tarihi",
+        "time"
+      ],
+      "ner_entities": [
+        {
+          "text": "Al",
+          "label": "LOC",
+          "score": 0.7281
+        },
+        {
+          "text": "##ın",
+          "label": "ORG",
+          "score": 0.563
+        },
+        {
+          "text": "##ı",
+          "label": "LOC",
+          "score": 0.5453
+        },
+        {
+          "text": "##ş",
+          "label": "ORG",
+          "score": 0.4327
+        },
+        {
+          "text": "Tarihi",
+          "label": "MISC",
+          "score": 0.4796
+        },
+        {
+          "text": "Ö",
+          "label": "LOC",
+          "score": 0.3935
+        },
+        {
+          "text": "##ndeğ",
+          "label": "ORG",
+          "score": 0.3943
+        },
+        {
+          "text": "olar",
+          "label": "ORG",
+          "score": 0.557
+        },
+        {
+          "text": "Genel Bilgiler",
+          "label": "ORG",
+          "score": 0.8612
+        },
+        {
+          "text": "Bilgisi",
+          "label": "ORG",
+          "score": 0.6201
+        }
+      ],
+      "scenario_lines": [
+        "Alınış Tarihi (Date) alanı geçerli bir tarih formatında olmalıdır.",
+        "Alınış Tarihi (Date) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.98,
+      "source_text": "Date | Öndeğer olarak sistemdeki Genel Bilgiler alanındaki Tarih Bilgisi getirilir. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Vade Tarihi",
+      "field_name_en": "Due Date",
+      "field_type": "date",
+      "raw_type": "Date",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "date",
+        "vade",
+        "tarihi",
+        "due",
+        "time"
+      ],
+      "ner_entities": [
+        {
+          "text": "V",
+          "label": "PER",
+          "score": 0.2793
+        },
+        {
+          "text": "##ade",
+          "label": "ORG",
+          "score": 0.4718
+        },
+        {
+          "text": "Ta",
+          "label": "PER",
+          "score": 0.4833
+        },
+        {
+          "text": "##rihi",
+          "label": "MISC",
+          "score": 0.3764
+        }
+      ],
+      "scenario_lines": [
+        "Vade Tarihi (Due Date) alanı geçerli bir tarih formatında olmalıdır.",
+        "Vade Tarihi (Due Date) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.98,
+      "source_text": "Date | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Çekin Borçlusu",
+      "field_name_en": "Debtor of a Check",
+      "field_type": "string",
+      "raw_type": "Alfanumerik String",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": 50,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "person",
+        "check",
+        "cekin",
+        "borclusu",
+        "debtor",
+        "of"
+      ],
+      "ner_entities": [
+        {
+          "text": "Çekin Borçlusu",
+          "label": "ORG",
+          "score": 0.8439
+        },
+        {
+          "text": "Alfanum",
+          "label": "ORG",
+          "score": 0.6469
+        }
+      ],
+      "scenario_lines": [
+        "Çekin Borçlusu (Debtor of a Check) alanı maksimum 50 karakterli olmalıdır.",
+        "Çekin Borçlusu (Debtor of a Check) alanına sadece metin girişi yapılabilir.",
+        "Çekin Borçlusu (Debtor of a Check) alanı opsiyoneldir."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfanumerik String | 50 | Opsiyonel",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Tutar",
+      "field_name_en": "Amount",
+      "field_type": "number",
+      "raw_type": "Numerik(virgülden sonra iki digit)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "amount",
+        "tutar"
+      ],
+      "ner_entities": [],
+      "scenario_lines": [
+        "Tutar (Amount) alanına sadece sayısal değer girilebilir.",
+        "Tutar (Amount) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Numerik(virgülden sonra iki digit) | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Banka Adı",
+      "field_name_en": "Bank Name",
+      "field_type": "string",
+      "raw_type": "Alfanumerik String",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": 50,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "banka",
+        "adi",
+        "bank",
+        "name"
+      ],
+      "ner_entities": [
+        {
+          "text": "Banka Adı Bank",
+          "label": "ORG",
+          "score": 0.9852
+        }
+      ],
+      "scenario_lines": [
+        "Banka Adı (Bank Name) alanı maksimum 50 karakterli olmalıdır.",
+        "Banka Adı (Bank Name) alanına sadece metin girişi yapılabilir.",
+        "Banka Adı (Bank Name) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfanumerik String | 50 | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Banka İl",
+      "field_name_en": "Bank City",
+      "field_type": "string",
+      "raw_type": "Ülke = Türkiye için geçerli illerden seçim yapılmalıdır.",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "address",
+        "banka",
+        "il",
+        "bank",
+        "city"
+      ],
+      "ner_entities": [
+        {
+          "text": "Banka İl Bank City",
+          "label": "ORG",
+          "score": 0.9395
+        },
+        {
+          "text": "Tü",
+          "label": "LOC",
+          "score": 0.4911
+        },
+        {
+          "text": "##rk",
+          "label": "MISC",
+          "score": 0.4524
+        },
+        {
+          "text": "##i",
+          "label": "LOC",
+          "score": 0.3371
+        },
+        {
+          "text": "##ye",
+          "label": "ORG",
+          "score": 0.7044
+        }
+      ],
+      "scenario_lines": [
+        "Banka İl (Bank City) alanına sadece metin girişi yapılabilir.",
+        "Banka İl (Bank City) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.4551,
+      "source_text": "Ülke = Türkiye için geçerli illerden seçim yapılmalıdır. | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Banka Şube",
+      "field_name_en": "Bank Branch",
+      "field_type": "string",
+      "raw_type": "Alfanumerik String",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": 50,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "warehouse",
+        "banka",
+        "sube",
+        "bank",
+        "branch",
+        "card"
+      ],
+      "ner_entities": [
+        {
+          "text": "Banka Şube Bank",
+          "label": "ORG",
+          "score": 0.9986
+        }
+      ],
+      "scenario_lines": [
+        "Banka Şube (Bank Branch) alanı maksimum 50 karakterli olmalıdır.",
+        "Banka Şube (Bank Branch) alanına sadece metin girişi yapılabilir.",
+        "Banka Şube (Bank Branch) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.96,
+      "source_text": "Alfanumerik String | 50 | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hesap Numarası/IBAN",
+      "field_name_en": "Account Number/IBAN",
+      "field_type": "id",
+      "raw_type": "Alfanumerik String",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": 50,
+      "min_len": null,
+      "pattern": "^TR\\d{24}$",
+      "enum_values": [],
+      "semantic_tags": [
+        "hesap",
+        "numarasi",
+        "iban",
+        "account",
+        "number"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hesap Numarası",
+          "label": "ORG",
+          "score": 0.5942
+        },
+        {
+          "text": "IBA",
+          "label": "ORG",
+          "score": 0.6854
+        },
+        {
+          "text": "IBA",
+          "label": "ORG",
+          "score": 0.6933
+        }
+      ],
+      "scenario_lines": [
+        "Hesap Numarası/IBAN (Account Number/IBAN) alanı maksimum 50 karakterli olmalıdır.",
+        "Hesap Numarası/IBAN (Account Number/IBAN) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Hesap Numarası/IBAN (Account Number/IBAN) alanı tanımlı format kuralına uymalıdır.",
+        "Hesap Numarası/IBAN (Account Number/IBAN) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.97,
+      "source_text": "Alfanumerik String | max 50 | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Hareket Açıklama",
+      "field_name_en": "Movement Description",
+      "field_type": "string",
+      "raw_type": "String",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": 255,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "person",
+        "hareket",
+        "aciklama",
+        "movement",
+        "description"
+      ],
+      "ner_entities": [
+        {
+          "text": "Hare",
+          "label": "MISC",
+          "score": 0.9378
+        },
+        {
+          "text": "##ket",
+          "label": "ORG",
+          "score": 0.4888
+        },
+        {
+          "text": "Açıklama Movement",
+          "label": "MISC",
+          "score": 0.6472
+        },
+        {
+          "text": "Genel Bilgiler",
+          "label": "ORG",
+          "score": 0.9212
+        },
+        {
+          "text": "Hareket Belge Açıklama",
+          "label": "ORG",
+          "score": 0.8663
+        }
+      ],
+      "scenario_lines": [
+        "Hareket Açıklama (Movement Description) alanı maksimum 255 karakterli olmalıdır.",
+        "Hareket Açıklama (Movement Description) alanına sadece metin girişi yapılabilir.",
+        "Hareket Açıklama (Movement Description) alanı opsiyoneldir."
+      ],
+      "confidence": 0.97,
+      "source_text": "String | max 255 | Genel Bilgiler alanında girillen Hareket Belge Açıklama verisi getirilir kullanıcı bu alanda değişiklik yapabilir. | Opsiyonel | -",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Avans",
+      "field_name_en": "Avans",
+      "field_type": "bool",
+      "raw_type": "Boolean (Evet/Hayır)",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "avans"
+      ],
+      "ner_entities": [
+        {
+          "text": "Avans Ava",
+          "label": "ORG",
+          "score": 0.6247
+        },
+        {
+          "text": "Boole",
+          "label": "ORG",
+          "score": 0.6422
+        },
+        {
+          "text": "##an",
+          "label": "MISC",
+          "score": 0.5084
+        },
+        {
+          "text": "Eve",
+          "label": "PER",
+          "score": 0.3415
+        },
+        {
+          "text": "Hay",
+          "label": "PER",
+          "score": 0.3936
+        },
+        {
+          "text": "Hay",
+          "label": "ORG",
+          "score": 0.3331
+        }
+      ],
+      "scenario_lines": [
+        "Avans (Avans) alanı evet/hayır veya true/false tipinde olmalıdır.",
+        "Avans (Avans) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Boolean (Evet/Hayır) | Hayır | Zorunlu",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Sipariş Belge No",
+      "field_name_en": "Order Doc No",
+      "field_type": "id",
+      "raw_type": "Detay Kart Kod - Ad alanında seçilen kartlar4.1.1 Müşteri Kartları ise Müşteriye ait Satış Siparişlerinden seçim yapılabilir.4.1.3 Tedarikçi Kartları ise Tedarikçiye ait Satınalma Siparişlerinden seçim yapılabilir.",
+      "required": false,
+      "optional": true,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "document",
+        "serial",
+        "card",
+        "siparis",
+        "belge",
+        "no",
+        "order",
+        "doc"
+      ],
+      "ner_entities": [
+        {
+          "text": "Sipariş Belge",
+          "label": "ORG",
+          "score": 0.966
+        },
+        {
+          "text": "Müşteri Kartları",
+          "label": "ORG",
+          "score": 0.7891
+        },
+        {
+          "text": "Mü",
+          "label": "LOC",
+          "score": 0.4599
+        },
+        {
+          "text": "##şteriye",
+          "label": "ORG",
+          "score": 0.5847
+        },
+        {
+          "text": "Satış Siparişler",
+          "label": "ORG",
+          "score": 0.8295
+        },
+        {
+          "text": "Tedarikçi Kartları",
+          "label": "ORG",
+          "score": 0.7993
+        },
+        {
+          "text": "Tedarikçiye",
+          "label": "ORG",
+          "score": 0.6718
+        },
+        {
+          "text": "Satınalma Siparişler",
+          "label": "ORG",
+          "score": 0.8871
+        }
+      ],
+      "scenario_lines": [
+        "Sipariş Belge No (Order Doc No) alanı benzersiz bir kimlik veya kod formatında olmalıdır.",
+        "Sipariş Belge No (Order Doc No) alanı opsiyoneldir."
+      ],
+      "confidence": 0.95,
+      "source_text": "Detay Kart Kod - Ad alanında seçilen kartlar4.1.1 Müşteri Kartları ise Müşteriye ait Satış Siparişlerinden seçim yapılabilir.4.1.3 Tedarikçi Kartları ise Tedarikçiye ait Satınalma Siparişlerinden seçim yapılabilir. | Opsiyonel",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Durumu",
+      "field_name_en": "Status",
+      "field_type": "enum",
+      "raw_type": "Enum Değer listesinden işleme göre sistem tarafından getirilir.Portföye Giriş",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "status",
+        "durumu"
+      ],
+      "ner_entities": [
+        {
+          "text": "Portföye Giriş İ",
+          "label": "ORG",
+          "score": 0.9139
+        },
+        {
+          "text": "Portföye Giriş",
+          "label": "ORG",
+          "score": 0.9662
+        },
+        {
+          "text": "##ster",
+          "label": "ORG",
+          "score": 0.5347
+        },
+        {
+          "text": "Portföye Giriş",
+          "label": "ORG",
+          "score": 0.9594
+        }
+      ],
+      "scenario_lines": [
+        "Durumu (Status) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.99,
+      "source_text": "Enum Değer listesinden işleme göre sistem tarafından getirilir.Portföye Giriş | İlk girişte bu alana \"Portföye Giriş\" değeri getirilmelidir.Bu alan link şeklinde gösterilmeli ve \"Portföye Giriş\" dışında bir durum var ise en son belgeye ulaşması sağlanmalıdır. | Zorunlu - Readonly",
+      "locale": "tr-TR"
+    },
+    {
+      "field_name_tr": "Finans Hareketleri Özel Değişkenleri",
+      "field_name_en": "Financial Transactions Special Variables",
+      "field_type": "bool",
+      "raw_type": "Liste (Özel Değişkenler)1.13.4. Özel Değişken Hareket Tanımı listesinde \"Hareket Türü\" = \"Finans Hareketleri\" olan değişkenler listelenir.",
+      "required": true,
+      "optional": false,
+      "unique": false,
+      "max_len": null,
+      "min_len": null,
+      "pattern": null,
+      "enum_values": [],
+      "semantic_tags": [
+        "finans",
+        "hareketleri",
+        "ozel",
+        "degiskenleri",
+        "financial",
+        "transactions",
+        "special",
+        "variables"
+      ],
+      "ner_entities": [
+        {
+          "text": "##ans Hareketleri Ö",
+          "label": "ORG",
+          "score": 0.7463
+        },
+        {
+          "text": "De",
+          "label": "ORG",
+          "score": 0.5461
+        },
+        {
+          "text": "##ler",
+          "label": "ORG",
+          "score": 0.6988
+        },
+        {
+          "text": "Tan",
+          "label": "ORG",
+          "score": 0.6028
+        },
+        {
+          "text": "Finans Hareketleri",
+          "label": "ORG",
+          "score": 0.8095
+        }
+      ],
+      "scenario_lines": [
+        "Finans Hareketleri Özel Değişkenleri (Financial Transactions Special Variables) alanı evet/hayır veya true/false tipinde olmalıdır.",
+        "Finans Hareketleri Özel Değişkenleri (Financial Transactions Special Variables) alanı doldurulması zorunludur."
+      ],
+      "confidence": 0.1854,
+      "source_text": "Liste (Özel Değişkenler)1.13.4. Özel Değişken Hareket Tanımı listesinde \"Hareket Türü\" = \"Finans Hareketleri\" olan değişkenler listelenir. | 1.13.4. Özel Değişken Hareket Tanımı 'dan gelen değişkenin zorunluluk durumuna göre karar verilir",
+      "locale": "tr-TR"
+    }
+  ]
+}

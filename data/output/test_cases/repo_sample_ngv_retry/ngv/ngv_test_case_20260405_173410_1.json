@@ -1,0 +1,162 @@
+{
+  "scenario_type": "NGV",
+  "description": "Tekil alan 'Hareket Belge No' için tekrarlı değer testi",
+  "test_data": [
+    {
+      "accountingStatus": null,
+      "branchDocumentSeries": {
+        "documentClass": null,
+        "id": "28052c8b-15a8-46d9-ba7f-86b848c60c3e",
+        "subDocumentClass": null
+      },
+      "cardCurrencyDescription": {
+        "id": "a1af9bc0-8d79-4004-9298-8e720442e57a",
+        "numericCode": "TRY",
+        "unit": null
+      },
+      "cardCurrencyExchangeRate": 1.25,
+      "checkNoteCaseCard": {
+        "bankCard": {
+          "id": "11111111-1111-4111-8111-111111111111"
+        },
+        "financeCardType": null,
+        "id": "713f8a32-fd58-4ef6-8bef-940f09735752"
+      },
+      "checkNoteCaseCardType": {
+        "id": "STOCK_CARD"
+      },
+      "currencyDescription": {
+        "id": "a1af9bc0-8d79-4004-9298-8e720442e57a",
+        "numericCode": null,
+        "unit": null
+      },
+      "currencyExchangeRate": 1.25,
+      "documentDate": "2026-01-15T10:30:00.000Z",
+      "documentDescription": null,
+      "documentNumber": null,
+      "documentSpecialVariableValues": "DEFAULT",
+      "entityStatus": "SAVED_TO_PHOENIX",
+      "externalId": null,
+      "financeCard": {
+        "bankCard": {
+          "id": null
+        },
+        "financeCardType": "CUSTOMER",
+        "id": "5fbfdff0-7751-4510-b1ca-b20ecb3cfdcf"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": null,
+      "relatedDocument": {
+        "branchDocumentSeries": {
+          "documentClass": null,
+          "id": "DOC-0001",
+          "subDocumentClass": null
+        },
+        "documentDate": "2026-01-15T10:30:00.000Z",
+        "documentDescription": "Test Adi",
+        "documentNumber": null,
+        "id": null,
+        "subDocumentClass": null
+      },
+      "relatedInvoiceDocument": {
+        "branchDocumentSeries": {
+          "documentClass": null,
+          "id": null,
+          "subDocumentClass": null
+        },
+        "documentDate": "2026-01-15T10:30:00.000Z",
+        "documentDescription": null,
+        "documentNumber": null,
+        "id": null,
+        "subDocumentClass": null
+      },
+      "subDocumentClass": null,
+      "turnover": true,
+      "user": {
+        "active": null,
+        "description": null,
+        "id": "jplatformuser Admin",
+        "username": "test.user"
+      }
+    },
+    {
+      "accountingStatus": null,
+      "branchDocumentSeries": {
+        "documentClass": null,
+        "id": "28052c8b-15a8-46d9-ba7f-86b848c60c3e",
+        "subDocumentClass": null
+      },
+      "cardCurrencyDescription": {
+        "id": "a1af9bc0-8d79-4004-9298-8e720442e57a",
+        "numericCode": "TRY",
+        "unit": null
+      },
+      "cardCurrencyExchangeRate": 1.25,
+      "checkNoteCaseCard": {
+        "bankCard": {
+          "id": "11111111-1111-4111-8111-111111111111"
+        },
+        "financeCardType": null,
+        "id": "713f8a32-fd58-4ef6-8bef-940f09735752"
+      },
+      "checkNoteCaseCardType": {
+        "id": "STOCK_CARD"
+      },
+      "currencyDescription": {
+        "id": "a1af9bc0-8d79-4004-9298-8e720442e57a",
+        "numericCode": null,
+        "unit": null
+      },
+      "currencyExchangeRate": 1.25,
+      "documentDate": "2026-01-15T10:30:00.000Z",
+      "documentDescription": null,
+      "documentNumber": null,
+      "documentSpecialVariableValues": "DEFAULT",
+      "entityStatus": "SAVED_TO_PHOENIX",
+      "externalId": null,
+      "financeCard": {
+        "bankCard": {
+          "id": null
+        },
+        "financeCardType": "CUSTOMER",
+        "id": "5fbfdff0-7751-4510-b1ca-b20ecb3cfdcf"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": null,
+      "relatedDocument": {
+        "branchDocumentSeries": {
+          "documentClass": null,
+          "id": "DOC-0001",
+          "subDocumentClass": null
+        },
+        "documentDate": "2026-01-15T10:30:00.000Z",
+        "documentDescription": "Test Adi",
+        "documentNumber": null,
+        "id": null,
+        "subDocumentClass": null
+      },
+      "relatedInvoiceDocument": {
+        "branchDocumentSeries": {
+          "documentClass": null,
+          "id": null,
+          "subDocumentClass": null
+        },
+        "documentDate": "2026-01-15T10:30:00.000Z",
+        "documentDescription": null,
+        "documentNumber": null,
+        "id": null,
+        "subDocumentClass": null
+      },
+      "subDocumentClass": null,
+      "turnover": true,
+      "user": {
+        "active": null,
+        "description": null,
+        "id": "jplatformuser Admin",
+        "username": "test.user"
+      }
+    }
+  ],
+  "expected_result": "VALIDATION_ERROR",
+  "expected_message": "Alan 'relatedDocument.branchDocumentSeries.id' için tekrarlı değer hatası: DOC-0001"
+}

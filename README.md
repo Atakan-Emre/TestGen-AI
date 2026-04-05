@@ -39,6 +39,11 @@ TestGen AI'nin odagi yalnizca test dosyasi yazmak degildir. Sistem su zinciri te
 
 Bu nedenle TestGen AI bir "test case generator" olmanin otesinde, `scenario intelligence + schema matching + controlled test generation` platformudur.
 
+Repo ornekleri bilincli olarak korunur:
+
+- ornek girdiler: `data/input/Csv`, `data/input/Json`, `data/input/Variables`
+- sabit ornek ciktılar: [data/output/repo_samples](/Users/atakanemre/Downloads/test_project-main/data/output/repo_samples)
+
 ## Ne Cozer
 
 Kurumsal ekiplerde su sorunlar sik gorulur:
@@ -240,6 +245,14 @@ Sistem en saglikli sonucu su kolonlar oldugunda verir:
 | `Tekil mi?` | Unique constraint |
 | `Öndeğer` | Enum veya pattern sinyali icin yardimci veri |
 
+Repo ile gelen ornek dosyalar:
+
+- [example.csv](/Users/atakanemre/Downloads/test_project-main/data/input/Csv/example.csv)
+- [Example-Header.json](/Users/atakanemre/Downloads/test_project-main/data/input/Json/Example-Header.json)
+- [Example-Line.json](/Users/atakanemre/Downloads/test_project-main/data/input/Json/Example-Line.json)
+- [variablesHeader.txt](/Users/atakanemre/Downloads/test_project-main/data/input/Variables/variablesHeader.txt)
+- [variablesLine.txt](/Users/atakanemre/Downloads/test_project-main/data/input/Variables/variablesLine.txt)
+
 ### 2. Variables profilleri
 
 Variables su formatlarda tutulabilir:
@@ -401,6 +414,7 @@ Desteklenen ana aksiyonlar:
 │   │   ├── Variables
 │   │   └── BindingProfiles
 │   └── output
+│       ├── repo_samples
 │       ├── test_scenarios
 │       ├── test_cases
 │       └── binding_validation_reports
@@ -492,6 +506,75 @@ Bu yapi:
 - Repo: [https://github.com/Atakan-Emre/TestGen-AI](https://github.com/Atakan-Emre/TestGen-AI)
 - Demo: [https://atakan-emre.github.io/TestGen-AI/](https://atakan-emre.github.io/TestGen-AI/)
 
+### Workflow dosyasi
+
+- [frontend-pages.yml](/Users/atakanemre/Downloads/test_project-main/.github/workflows/frontend-pages.yml)
+
+Bu workflow:
+
+- `main` ve `master` push'larinda calisir
+- frontend testlerini kosar
+- repo alt yoluna uygun Pages build alir
+- artifact'i GitHub Pages'e deploy eder
+- `PAGES_ADMIN_TOKEN` verilirse repo Pages yapisini otomatik etkinlestirir
+
+### Ilk kurulum problemi ve cozum
+
+GitHub Pages ilk kez acilmamis bir repoda su hata alinabilir:
+
+```text
+Get Pages site failed ... Not Found
+```
+
+Bunun anlami repo icin Pages site kaydinin henuz olusmamis olmasidir.
+
+Bu durumda iki cozum vardir:
+
+1. GitHub uzerinden bir kez `Settings -> Pages -> Source: GitHub Actions` secmek
+2. Repo secret olarak `PAGES_ADMIN_TOKEN` eklemek ve workflow'un Pages'i otomatik etkinlestirmesine izin vermek
+
+### `PAGES_ADMIN_TOKEN` neden gerekli?
+
+GitHub'in resmi `actions/configure-pages@v5` aksiyonu `enablement: true` secenegi ile Pages'i otomatik acabilir. Ancak GitHub'in resmi tanimina gore bu islem icin varsayilan `GITHUB_TOKEN` yeterli degildir; repo yonetim yetkili baska bir token gerekir.
+
+Onerilen secret:
+
+- `PAGES_ADMIN_TOKEN`
+
+Token yetkisi:
+
+- classic PAT kullaniyorsan `repo`
+- fine-grained PAT kullaniyorsan en az Pages write ve repository administration write
+
+### Gerekli repo ayarlari
+
+GitHub repo tarafinda su ayarlari tamamlanmalidir:
+
+1. `Settings -> Pages`
+2. `Source` olarak `GitHub Actions`
+3. `Secrets and variables -> Actions`
+4. Gerekirse `PAGES_ADMIN_TOKEN` secret'i
+5. Demo backend adresin icin `VITE_API_URL` repo variable'i
+
+### Onerilen variable ve secret'ler
+
+| Tip | Ad | Ornek |
+| --- | --- | --- |
+| Variable | `VITE_API_URL` | `https://api.example.com/api` |
+| Secret | `PAGES_ADMIN_TOKEN` | repo admin yetkili token |
+
+### Pages ve backend entegrasyonu
+
+GitHub Pages yalnizca frontend'i barindirir. Demo ekranlarinin veri gostermesi icin ayri bir backend deploy'u gerekir.
+
+Backend public olacaksa su origin izin listesine eklenmelidir:
+
+- `https://atakan-emre.github.io`
+
+Bu origin zaten ornek env icinde yer alir:
+
+- [.env.example](/Users/atakanemre/Downloads/test_project-main/.env.example)
+
 
 ## Ana API Gruplari
 
@@ -574,4 +657,3 @@ Bu repo su an profesyonel demo ve gelistirme tabanina sahiptir:
 ## Sonuc
 
 TestGen AI, yalnizca senaryo yazan veya yalnizca JSON mutate eden bir arac degildir. Bu repo, `CSV -> scenario intelligence -> schema binding -> controlled test generation` zincirini tek platformda toplayan, audit edilebilir ve gelistirilebilir bir muhendislik altyapisidir.
-

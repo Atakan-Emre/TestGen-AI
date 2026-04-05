@@ -48,6 +48,8 @@ Her teknik degisiklikten sonra durum guncellenecektir.
 - [x] Variables data root, backend pytest ve CI backend quality gap'i duzeltildi
 - [x] Otomatik binding akisi statik dosya bagimliligindan cikarilip inline/dinamik payload ile calisir hale getirildi
 - [x] README ve repo yayin yuzeyi repo/demo linkleri, mimari diyagramlari ve ayrintili NLP dokumantasyonu ile profesyonellestirildi
+- [x] GitHub Pages workflow'u ilk kurulum hatasina karsi `PAGES_ADMIN_TOKEN` destekleyecek sekilde sertlestirildi
+- [x] Repo icin sabit ornek output seti tekrar eklendi; sample girdiler ve sample ciktılar birlikte korunuyor
 
 ## Decision Notes
 
@@ -240,6 +242,16 @@ Her teknik degisiklikten sonra durum guncellenecektir.
   - `frontend/index.html` meta description ve Open Graph alanlari repo kimligiyle guncellendi
   - `frontend/package.json` repository/homepage/bugs/keywords metadata alanlari eklendi
   - `.env.example` Pages origin'ini de kapsayacak sekilde guncellendi
+ - 2026-04-05: Repo yayin temizligi ve Pages enablement guncellendi.
+  - `.github/workflows/frontend-pages.yml` `PAGES_ADMIN_TOKEN` varsa `actions/configure-pages@v5` ile `enablement: true` kullanacak sekilde guncellendi
+  - Secret yoksa workflow artik acik bir bootstrap notu veriyor
+  - `.gitignore` runtime `data/output` klasorlerini `.gitkeep` ile koruyup generated icerigi ignore edecek sekilde guncellendi
+  - `data/input/Csv`, `data/input/Json` ve `data/input/Variables` altindaki ornek girdiler korundu
+  - `data/input/BindingProfiles` icindeki generated auto profile dosyalari temizlendi ve klasor `.gitkeep` ile korundu
+ - 2026-04-05: Repo sample output seti geri eklendi.
+  - `data/output/repo_samples` altinda senaryo txt/meta ve `bsc`, `ngi`, `ngv`, `opt` icin temsilci sample JSON ciktilari olusturuldu
+  - `.gitignore` bu sample klasoru repoda tutulacak, geri kalan runtime output ise ignore edilecek sekilde guncellendi
+  - README repo ile gelen ornek input ve output dosyalarini aciklayacak sekilde guncellendi
     - `documentDescription` template degeri korunarak uretildi
     - `currentCardType` negative generator'larda ignore edilip mutate edilmedi
 - 2026-04-04: Binding Studio JSON otomatik doldurma hatasi duzeltildi.

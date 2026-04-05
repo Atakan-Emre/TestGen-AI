@@ -1,0 +1,94 @@
+Hareket Seri (Movement Serial) alanı maksimum 3 karakterli olmalıdır.
+Hareket Seri (Movement Serial) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Hareket Seri (Movement Serial) alanı doldurulması zorunludur.
+Hareket Belge No (Movement Doc Nr) alanı maksimum 10 karakterli olmalıdır.
+Hareket Belge No (Movement Doc Nr) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Hareket Belge No (Movement Doc Nr) alanı doldurulması zorunludur.
+Hareket Belge No (Movement Doc Nr) alanı tekildir.
+Tarih (Date) alanı geçerli bir tarih formatında olmalıdır.
+Tarih (Date) alanı doldurulması zorunludur.
+Saat (Time) alanı geçerli bir tarih formatında olmalıdır.
+Saat (Time) alanı doldurulması zorunludur.
+Hareket Belge Açıklama (Movement Doc Description) alanı maksimum 255 karakterli olmalıdır.
+Hareket Belge Açıklama (Movement Doc Description) alanına sadece metin girişi yapılabilir.
+Hareket Belge Açıklama (Movement Doc Description) alanı opsiyoneldir.
+Hareket Para Birimi (Currency Description) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Hareket Para Birimi (Currency Description) alanı doldurulması zorunludur.
+Hareket Kur (Currency Exchange Rate) alanına sadece sayısal değer girilebilir.
+Hareket Kur (Currency Exchange Rate) alanı doldurulması zorunludur.
+Kart Tipi (Card Type) alanı doldurulması zorunludur.
+Kart Kod - Ad (Card Code - Name) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Kart Kod - Ad (Card Code - Name) alanı doldurulması zorunludur.
+Kart Para Birimi (Currency) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Kart Para Birimi (Currency) alanı opsiyoneldir.
+Kart Kur (Rate) alanına sadece sayısal değer girilebilir.
+Kart Kur (Rate) alanı doldurulması zorunludur.
+Çek/Senet Kasa Kart Kod - Ad (Check/Note Case Card Code - Name) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Çek/Senet Kasa Kart Kod - Ad (Check/Note Case Card Code - Name) alanı doldurulması zorunludur.
+Devir Bordrosu (Turnover Check) alanı evet/hayır veya true/false tipinde olmalıdır.
+Devir Bordrosu (Turnover Check) alanı doldurulması zorunludur.
+Kullanıcı (User Name) alanına sadece metin girişi yapılabilir.
+Kullanıcı (User Name) alanı doldurulması zorunludur.
+Ortalama Vade (Average Due Date) alanı geçerli bir tarih formatında olmalıdır.
+Ortalama Vade (Average Due Date) alanı doldurulması zorunludur.
+Ortalama Vade Gün (Average Number of Due Days) alanına sadece sayısal değer girilebilir.
+Ortalama Vade Gün (Average Number of Due Days) alanı doldurulması zorunludur.
+Çek Adedi (Number of Checks) alanına sadece sayısal değer girilebilir.
+Çek Adedi (Number of Checks) alanı doldurulması zorunludur.
+Toplam Tutar (Total Amount) alanına sadece sayısal değer girilebilir.
+Toplam Tutar (Total Amount) alanı doldurulması zorunludur.
+Fatura Kapama Belge No (Related Invoice Document) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Fatura Kapama Belge No (Related Invoice Document) alanı opsiyoneldir.
+Muhasebeleşme Durumu (Accounting Status) alanı evet/hayır veya true/false tipinde olmalıdır.
+Muhasebeleşme Durumu (Accounting Status) alanı doldurulması zorunludur.
+Özel Değişkenler (Special Variables) alanı doldurulması zorunludur.
+Ekli Belgeler (Attachments) alanı opsiyoneldir.
+Belge (Attachment) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Belge (Attachment) alanı doldurulması zorunludur.
+Belge Adı (Doc Name) alanına sadece metin girişi yapılabilir.
+Belge Adı (Doc Name) alanı doldurulması zorunludur.
+Belge Açıklaması (Doc Description) alanı maksimum 255 karakterli olmalıdır.
+Belge Açıklaması (Doc Description) alanına sadece metin girişi yapılabilir.
+Belge Açıklaması (Doc Description) alanı opsiyoneldir.
+Ekleyen Kullanıcı (User) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Ekleyen Kullanıcı (User) alanı doldurulması zorunludur.
+Ekleme Tarihi (Attached Date) alanı geçerli bir tarih formatında olmalıdır.
+Ekleme Tarihi (Attached Date) alanı doldurulması zorunludur.
+Detay Bilgiler (Detail Info) alanı opsiyoneldir.
+Çek No (Check Nr) alanı en az 1 karakterli olmalıdır.
+Çek No (Check Nr) alanı maksimum 15 karakterli olmalıdır.
+Çek No (Check Nr) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Çek No (Check Nr) alanı doldurulması zorunludur.
+Çek No (Check Nr) alanı tekildir.
+Çek Türü (Check Type) alanı doldurulması zorunludur.
+Alınış Tarihi (Date) alanı geçerli bir tarih formatında olmalıdır.
+Alınış Tarihi (Date) alanı doldurulması zorunludur.
+Vade Tarihi (Due Date) alanı geçerli bir tarih formatında olmalıdır.
+Vade Tarihi (Due Date) alanı doldurulması zorunludur.
+Çekin Borçlusu (Debtor of a Check) alanı maksimum 50 karakterli olmalıdır.
+Çekin Borçlusu (Debtor of a Check) alanına sadece metin girişi yapılabilir.
+Çekin Borçlusu (Debtor of a Check) alanı opsiyoneldir.
+Tutar (Amount) alanına sadece sayısal değer girilebilir.
+Tutar (Amount) alanı doldurulması zorunludur.
+Banka Adı (Bank Name) alanı maksimum 50 karakterli olmalıdır.
+Banka Adı (Bank Name) alanına sadece metin girişi yapılabilir.
+Banka Adı (Bank Name) alanı doldurulması zorunludur.
+Banka İl (Bank City) alanına sadece metin girişi yapılabilir.
+Banka İl (Bank City) alanı doldurulması zorunludur.
+Banka Şube (Bank Branch) alanı maksimum 50 karakterli olmalıdır.
+Banka Şube (Bank Branch) alanına sadece metin girişi yapılabilir.
+Banka Şube (Bank Branch) alanı doldurulması zorunludur.
+Hesap Numarası/IBAN (Account Number/IBAN) alanı maksimum 50 karakterli olmalıdır.
+Hesap Numarası/IBAN (Account Number/IBAN) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Hesap Numarası/IBAN (Account Number/IBAN) alanı tanımlı format kuralına uymalıdır.
+Hesap Numarası/IBAN (Account Number/IBAN) alanı doldurulması zorunludur.
+Hareket Açıklama (Movement Description) alanı maksimum 255 karakterli olmalıdır.
+Hareket Açıklama (Movement Description) alanına sadece metin girişi yapılabilir.
+Hareket Açıklama (Movement Description) alanı opsiyoneldir.
+Avans (Avans) alanı evet/hayır veya true/false tipinde olmalıdır.
+Avans (Avans) alanı doldurulması zorunludur.
+Sipariş Belge No (Order Doc No) alanı benzersiz bir kimlik veya kod formatında olmalıdır.
+Sipariş Belge No (Order Doc No) alanı opsiyoneldir.
+Durumu (Status) alanı doldurulması zorunludur.
+Finans Hareketleri Özel Değişkenleri (Financial Transactions Special Variables) alanı evet/hayır veya true/false tipinde olmalıdır.
+Finans Hareketleri Özel Değişkenleri (Financial Transactions Special Variables) alanı doldurulması zorunludur.

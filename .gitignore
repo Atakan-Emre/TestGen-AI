@@ -98,5 +98,17 @@ build/
 backend/data
 
 # Runtime outputs
-data/output/
+data/output/*
+!data/output/.gitkeep
+!data/output/repo_samples/
+!data/output/repo_samples/**
+!data/output/test_cases/
+!data/output/test_cases/.gitkeep
+!data/output/test_scenarios/
+!data/output/test_scenarios/.gitkeep
+!data/output/binding_validation_reports/
+!data/output/binding_validation_reports/.gitkeep
+data/input/BindingProfiles/*
+!data/input/BindingProfiles/.gitkeep
 backups/
+AGENT.md
