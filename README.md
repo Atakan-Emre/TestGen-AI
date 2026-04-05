@@ -512,7 +512,8 @@ Bu yapi:
 
 Bu workflow:
 
-- `main` ve `master` push'larinda calisir
+- `CI` workflow'u `main` veya `master` icin basariyla tamamlandiginda calisir
+- istenirse `workflow_dispatch` ile manuel de tetiklenebilir
 - frontend testlerini kosar
 - repo alt yoluna uygun Pages build alir
 - artifact'i GitHub Pages'e deploy eder
