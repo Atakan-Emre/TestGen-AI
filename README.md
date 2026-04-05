@@ -175,7 +175,6 @@ docker compose up -d --build
 
 </details>
 
-<details>
 <summary><b>Klasör Yapısını Göster</b></summary>
 
 ```text
@@ -196,7 +195,6 @@ docker compose up -d --build
 └── docker-compose.prod.yml
 ````
 
-\</details\>
 
 -----
 
@@ -211,11 +209,9 @@ Frontend demosu GitHub Actions üzerinden otomatik olarak GitHub Pages'e deploy 
 
 -----
 
-\<div align="center"\>
 
 *Bu proje, senaryo zekası ve şema bağlama işlemlerini tek platformda toplayan, denetlenebilir bir mühendislik altyapısıdır.*
 
-\</div\>
 
 ---
 **Keywords / Anahtar Kelimeler:** `Test Automation`, `Test Case Generator`, `NLP`, `Natural Language Processing`, `Software Testing`, `QA Automation`, `FastAPI`, `React`, `JSON Schema Matching`, `Hybrid NLP`, `Yapay Zeka Destekli Test`, `Otomatik Test Senaryosu Üretimi`, `API Testing`.
