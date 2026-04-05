@@ -175,6 +175,7 @@ docker compose up -d --build
 
 </details>
 
+<details>
 <summary><b>Klasör Yapısını Göster</b></summary>
 
 ```text
@@ -194,7 +195,7 @@ docker compose up -d --build
 ├── docker-compose.yml
 └── docker-compose.prod.yml
 ````
-\<details\>
+
 
 -----
 
