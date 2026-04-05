@@ -280,10 +280,10 @@ Ornek:
 ```json
 {
   "scenario_name": "test",
-  "source_csv": "header.csv",
+  "source_csv": "<input_csv_name>.csv",
   "generator_type": "nlp_hybrid",
-  "generated_at": "2026-04-05T17:13:19.034362+00:00",
-  "scenario_file": "test_20260405_171319.txt",
+  "generated_at": "<iso_datetime>",
+  "scenario_file": "<scenario_name>_<timestamp>.txt",
   "fields": [
     {
       "field_name_tr": "Belge Tarihi",
@@ -314,9 +314,9 @@ Kayitli profile veya inline payload asagidaki mantikla calisir:
 
 ```json
 {
-  "name": "binding_auto_header_variablesHeader",
-  "json_file_id": 6,
-  "variables_profile": "variablesHeader",
+  "name": "binding_auto_<json_template>_<variables_profile>",
+  "json_file_id": "<json_file_id>",
+  "variables_profile": "<variables_profile>",
   "description": "Otomatik olusturulmus binding profili",
   "bindings": [
     {
@@ -361,10 +361,10 @@ Desteklenen ana aksiyonlar:
 ```json
 {
   "test_type": "bsc",
-  "scenario_path": "/app/data/output/test_scenarios/4nisantest_20260405_171319.txt",
-  "test_name": "4nisantest_bsc",
-  "json_file_id": 6,
-  "selected_variables": ["variablesHeader"],
+  "scenario_path": "/app/data/output/test_scenarios/<scenario_name>_<timestamp>.txt",
+  "test_name": "<test_suite_name>",
+  "json_file_id": "<json_file_id>",
+  "selected_variables": ["<variables_profile>"],
   "binding_profile": "{...inline json...}"
 }
 ```
@@ -373,10 +373,10 @@ Desteklenen ana aksiyonlar:
 
 ```json
 {
-  "scenario_id": "test_20260405_171319.txt",
-  "test_name": "test_negative",
-  "json_files": [6],
-  "variables_profile": "variablesHeader",
+  "scenario_id": "<scenario_name>_<timestamp>.txt",
+  "test_name": "<test_suite_name>",
+  "json_files": [123],
+  "variables_profile": "<variables_profile>",
   "binding_profile": "{...inline json...}"
 }
 ```
