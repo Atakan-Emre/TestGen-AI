@@ -194,7 +194,7 @@ docker compose up -d --build
 ├── docker-compose.yml
 └── docker-compose.prod.yml
 ````
-
+\<details\>
 
 -----
 
