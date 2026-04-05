@@ -1,0 +1,46 @@
+0,1,2,3,4,5,6,7,8,9,10
+Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,Alacak Çekleri Giriş Bordrosu - Receivable Check Entry,,,,
+Alan Adı,Alan adı (İng),Tip,Boyut,Öndeğer,Zorunlu mu?,Tekil mi?,Filtrelenebilir mi?,Sıralama Kriteri**,Düzenlenebilir mi?,Bilgi Grubu
+Hareket Seri,Movement Serial,Alfenumerik String,3,"İŞ KURALI :Seri Tanımlaması yok ise Standart A serisi gelecek.Kullanıcı Seri tanımlaması yapmış ve varsayılan seri seçmemiş ise ""Seçiniz"" değeri gelecek.Kullanıcı Seri tanımlaması yapmış ve varsayılan seri tanımlamış ise ilgili seri değeri gelecek.",Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Hareket Belge No,Movement Doc Nr,Alfenumerik String,10,İŞ KURALI : Her yeni kayıtta Seri No alanında seçilen seriye göre sistem tarafından 1 artırılır.,Zorunlu,Tekil (Seri Bazında),Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Tarih,Date,Date,,Öndeğer olarak sistemdeki işlem tarihi gelir,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Genel Bilgiler
+Saat,Time,Time,,Öndeğer olarak sistemdeki işlem saati gelir,Zorunlu,,,,Evet,Genel Bilgiler
+Hareket Belge Açıklama,Movement Doc Description,String,max 255,,Opsiyonel,-,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Hareket Para Birimi,Currency Description,,,Öndeğeri TRY olarak gelir. Kullanıcı isterse 1.6. Para Birimler listesinden seçim yapabilir.,Zorunlu,,Filtrelenebilir,,Evet,Genel Bilgiler
+Hareket Kur,Currency Exchange Rate,,,"Hareket Para Birimi TRY ise bu alan readonly ""1,00000"" değeri getirilmelidir. TRY dışında bir değer ise 1.6. Para Birimler""Ön Değer Kur"" alanı getirilir. Kullanıcı diğer kur değerlerinden birini seçebilir veya manuel kur verisi girebilir.",Zorunlu,,Filtrelenebilir,,Evet,Genel Bilgiler
+Kart Tipi,Card Type,Enum değer listesinden seçilir:MüşteriTedarikçiGelir/Gider,,Müşteri,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Hayır,Genel Bilgiler
+Kart Kod - Ad,Card Code - Name,"Kart Tipine bağlı olarak4.1.1 Müşteri Kartları4.1.3 Tedarikçi Kartları4.1.11 Gelir/Gider Kartılistesinden seçilirSeçim ekranında görüntülenmesi gereken veri ""Kart Kategori Kodu.Kod - Kart Ad (Para Birimi) - Bakiye (Borç/Alacak) "" şeklinde olmalı ve kullanıcı bu seçim ekranında görüntülenen kartların Bakiye bilgisini de görebilmelidir.Örn:120.01.0001- X MÜŞTERİ (TRY) - 1.000,00 (B)",,,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Kart Para Birimi,Currency,Kart Kod - Ad alanında seçilen kartın para birimi buraya getirilir ve değiştirilemez.,,,Readonly,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",,Genel Bilgiler
+Kart Kur,Rate,"Para Birimi alanında gelen değer TRY dışında bir değer ise 1.6. Para Birimler listesinden ""Ön Değer Kur"" alanı getirilir. Kullanıcı diğer kur değerlerinden birini seçebilir veya manuel kur verisi girebilir.",,,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Çek/Senet Kasa Kart Kod - Ad,Check/Note Case Card Code - Name,"Bu alanda 4.1.9 Çek/Senet Kasa Kartı larından Çek / Senet Kasa Kartı Tipi ""Alacak Çekleri"" olarak belirlenenlerden ve Para Birimi Hareket Para Birimi olanlardan seçim yapılmalıdır.",,,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Hayır,Genel Bilgiler
+Devir Bordrosu,Turnover Check,Boolean (Evet/Hayır),,Hayır,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Genel Bilgiler
+Kullanıcı,User Name,"İşlem yapan kullanıcı (Otomatik olarak getirilecek, kullanıcı değiştirilemeyecek)",,,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Hayır,Genel Bilgiler
+Ortalama Vade,Average Due Date,Numerik,,İş Kurallarında tarif edilmiştir.,Zorunlu - Hesaplanan Alan,,,,,Genel Bilgiler
+Ortalama Vade Gün,Average Number of Due Days,Numerik,,İş Kurallarında tarif edilmiştir.,Zorunlu - Hesaplanan Alan,,,,,Genel Bilgiler
+Çek Adedi,Number of Checks,Numerik,,Detay bilgilerindeki satır sayısı değeridir.,Zorunlu - Hesaplanan Alan,,,,,Genel Bilgiler
+Toplam Tutar,Total Amount,"Numerik(virgülden sonra iki digit olarak detayların Tutar toplamları 1.500,00 TRY örneğinde olduğu gibi gösterilmelidir.)",,Highlight alanında gösterilecektir.,Zorunlu,,Filtrelenebilir,,Hayır,Genel Bilgiler
+Fatura Kapama Belge No,Related Invoice Document,Eğer Alacak Çekleri Giriş Fatura üzerinden yapılan Fatura Kapama ile oluşturulmuş ise bu faturaya ait Belge Seri No bilgisi bu alanda link olarak gösterilir. Kullanıcı bu alanda linke basarak ilgiyi belgeye ulaşabilmelidir.,,Highlight Bağlı Belgeler alanında gösterilecektir.,Opsiyonel,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Hayır,Genel Bilgiler
+Muhasebeleşme Durumu,Accounting Status,Boolean (Evet/Hayır),,HayırHighlight alanda gösterilecektir.,Zorunlu,,Filtrelenebilir,Evet/Hayır,Evet,Genel Bilgiler
+Özel Değişkenler,Special Variables,"Liste (Özel Değişkenler)1.13.3. Özel Değişken Belge Tanımı listesinde ""Belge Tipi""=""Alacak Çekleri Giriş"" olan değişkenler listelenir.Bu bölümde yetkisi olan kullanıcı ""1.13.3. Özel Değişken Belge Tanımı"" ekranına yönlendirilerek ekleme ve düzenleme yapabilir.",,,1.13.3. Özel Değişken Belge Tanımı' dan gelen değişkenin zorunluluk durumuna göre karar verilir,,Filtrelenebilir,,Evet,Genel Bilgiler
+Ekli Belgeler,Attachments,"Binary List (jpg, png, pdf)",,,Opsiyonel,,,,,Ekli Belgeler
+Belge,Attachment,"Binary (jpg, png, pdf)Yüklenen Dosya",,,Ekli Belgeler içinde Zorunlu,,,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Ekli Belgeler
+Belge Adı,Doc Name,Alfenumerik String,,Yüklenen dosya ismini alır,Ekli Belgeler içinde Zorunlu,,,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Ekli Belgeler
+Belge Açıklaması,Doc Description,Alfenumerik String,max 255,,Opsiyonel,,,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Ekli Belgeler
+Ekleyen Kullanıcı,User,Kullanıcı,,Giriş yapan kullanıcı bilgisi sistem tarafından getirilir,Ekli Belgeler içinde Zorunlu,,,"""Alfabetik"" veya ""Ters-Alfabetik""",Hayır,Ekli Belgeler
+Ekleme Tarihi,Attached Date,Date (GG/AA/YYYY),,Kayıt tarihi sistem tarafından otomatik olarak getirilir,Ekli Belgeler içinde Zorunlu,,,"""Artan"" veya ""Azalan""",Hayır,Ekli Belgeler
+Detay Bilgiler,Detail Info,Liste,,,,,,,,Detay Bilgiler
+Çek No,Check Nr,Alfanumerik,min1- max15,,Zorunlu,Tekil,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Çek Türü,Check Type,Enum Değer ListesiNormalTeminat,,Normal,Zorunlu,-,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Alınış Tarihi,Date,Date,,Öndeğer olarak sistemdeki Genel Bilgiler alanındaki Tarih Bilgisi getirilir.,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Vade Tarihi,Due Date,Date,,,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Çekin Borçlusu,Debtor of a Check,Alfanumerik String,50,,Opsiyonel,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Tutar,Amount,Numerik(virgülden sonra iki digit),,,Zorunlu,,Filtrelenebilir,,Evet,Detay Bilgiler
+Banka Adı,Bank Name,Alfanumerik String,50,,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Banka İl,Bank City,Ülke = Türkiye için geçerli illerden seçim yapılmalıdır.,,,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Banka Şube,Bank Branch,Alfanumerik String,50,,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgiler
+Hesap Numarası/IBAN,Account Number/IBAN,Alfanumerik String,max 50,,Zorunlu,,Filtrelenebilir,"""Artan"" veya ""Azalan""",Evet,Detay Bilgileri
+Hareket Açıklama,Movement Description,String,max 255,Genel Bilgiler alanında girillen Hareket Belge Açıklama verisi getirilir kullanıcı bu alanda değişiklik yapabilir.,Opsiyonel,-,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Avans,,Boolean (Evet/Hayır),,Hayır,Zorunlu,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Sipariş Belge No,Order Doc No,Detay Kart Kod - Ad alanında seçilen kartlar4.1.1 Müşteri Kartları ise Müşteriye ait Satış Siparişlerinden seçim yapılabilir.4.1.3 Tedarikçi Kartları ise Tedarikçiye ait Satınalma Siparişlerinden seçim yapılabilir.,,,Opsiyonel,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Durumu,Status,Enum Değer listesinden işleme göre sistem tarafından getirilir.Portföye Giriş,,"İlk girişte bu alana ""Portföye Giriş"" değeri getirilmelidir.Bu alan link şeklinde gösterilmeli ve ""Portföye Giriş"" dışında bir durum var ise en son belgeye ulaşması sağlanmalıdır.",Zorunlu - Readonly,,Filtrelenebilir,"""Alfabetik"" veya ""Ters-Alfabetik""",Evet,Detay Bilgiler
+Finans Hareketleri Özel Değişkenleri,Financial Transactions Special Variables,"Liste (Özel Değişkenler)1.13.4. Özel Değişken Hareket Tanımı listesinde ""Hareket Türü"" = ""Finans Hareketleri"" olan değişkenler listelenir.",,,1.13.4. Özel Değişken Hareket Tanımı 'dan gelen değişkenin zorunluluk durumuna göre karar verilir,,Filtrelenebilir,,Evet,Detay Bilgiler

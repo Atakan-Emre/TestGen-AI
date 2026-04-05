@@ -1,0 +1,6 @@
+checkdCard.accountNumber=TR00000000000000000000
+checkdCard.bankCity.id=cc935d2c-a636-4180-ab22-2674b907ff24
+checkdCard.bankCountry.id=6f5672f8-0a51-4f01-b0e5-87a706ead569
+checkdCard.bankName=TEST-Bank
+checkdCard.checkType=NORMAL
+phoenixDocumentId={{HeaderId}}

@@ -1,0 +1,165 @@
+{
+  "advance": true,
+  "checkCard": {
+    "accountNumber": "string",
+    "amount": 0,
+    "amountCardCurrency": 0,
+    "bankBranch": "string",
+    "bankCity": {
+      "country": {
+        "id": "string"
+      },
+      "id": "string"
+    },
+    "bankCountry": {
+      "id": "string"
+    },
+    "bankName": "string",
+    "cardCurrencyDescription": {
+      "id": "string",
+      "numericCode": "string",
+      "unit": 0
+    },
+    "cardCurrencyExchangeRate": 0,
+    "checkNoteCaseCard": {
+      "bankCard": {
+        "id": "string"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": "string"
+    },
+    "checkNoteCaseCardType": {
+      "id": "string"
+    },
+    "checkNumber": "stringstringstr",
+    "checkType": "NORMAL",
+    "currencyDescription": {
+      "id": "string",
+      "numericCode": "string",
+      "unit": 0
+    },
+    "debtor": "string",
+    "documentDate": "2025-09-11T13:35:38.534Z",
+    "documentNumber": "string",
+    "documentSerial": "string",
+    "dueDate": "2025-09-11T13:35:38.534Z",
+    "entityStatus": "SAVED_TO_PHOENIX",
+    "externalId": "string",
+    "financeCard": {
+      "bankCard": {
+        "id": "string"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": "string"
+    },
+    "financeCardType": "CUSTOMER",
+    "id": "string",
+    "ownerCurrencyDescription": {
+      "id": "string",
+      "numericCode": "string",
+      "unit": 0
+    },
+    "ownerCurrencyExchangeRate": 0,
+    "ownerFinanceCard": {
+      "bankCard": {
+        "id": "string"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": "string"
+    },
+    "ownerFinanceCardType": "CUSTOMER",
+    "receivingDate": "2025-09-11T13:35:38.534Z",
+    "status": "ENTRY",
+    "subDocumentClass": "NONE",
+    "transactionDate": "2025-09-11T13:35:38.534Z",
+    "transactions": [
+      {
+        "amountCardCurrency": 0,
+        "cardCurrencyDescription": {
+          "id": "string",
+          "numericCode": "string",
+          "unit": 0
+        },
+        "cardCurrencyExchangeRate": 0,
+        "documentDate": "2025-09-11T13:35:38.534Z",
+        "documentNumber": "string",
+        "documentSerial": "string",
+        "financeCard": {
+          "bankCard": {
+            "id": "string"
+          },
+          "financeCardType": "CUSTOMER",
+          "id": "string"
+        },
+        "financeCardType": "CUSTOMER",
+        "status": "ENTRY",
+        "subDocumentClass": "NONE",
+        "transactionDate": "2025-09-11T13:35:38.534Z",
+        "transactionDocumentHeaderId": "string",
+        "transactionDocumentLineId": "string"
+      }
+    ]
+  },
+  "checkCardLastInfo": {
+    "cardCurrencyDescription": {
+      "id": "string",
+      "numericCode": "string",
+      "unit": 0
+    },
+    "financeCard": {
+      "bankCard": {
+        "id": "string"
+      },
+      "financeCardType": "CUSTOMER",
+      "id": "string"
+    },
+    "financeCardType": "CUSTOMER",
+    "id": "string",
+    "status": "ENTRY",
+    "subDocumentClass": "NONE"
+  },
+  "description": "string",
+  "entityStatus": "SAVED_TO_PHOENIX",
+  "externalId": "string",
+  "id": "string",
+  "lastStatus": "ENTRY",
+  "phoenixDocumentId": "string",
+  "relatedDocument": {
+    "branchDocumentSeries": {
+      "documentClass": "NONE",
+      "id": "string",
+      "subDocumentClass": "NONE"
+    },
+    "documentDate": "2025-09-11T13:35:38.534Z",
+    "documentDescription": "string",
+    "documentNumber": "string",
+    "id": "string",
+    "subDocumentClass": "NONE"
+  },
+  "transactionSpecialVariables": {
+    "additionalProp1": {
+      "description": "string",
+      "type": "ALPHANUMERIC",
+      "value": {
+        "code": "string",
+        "value": "string"
+      }
+    },
+    "additionalProp2": {
+      "description": "string",
+      "type": "ALPHANUMERIC",
+      "value": {
+        "code": "string",
+        "value": "string"
+      }
+    },
+    "additionalProp3": {
+      "description": "string",
+      "type": "ALPHANUMERIC",
+      "value": {
+        "code": "string",
+        "value": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+# Production override for docker-compose.yml
+# Kullanım: docker compose -f docker-compose.yml -f docker-compose.prod.yml up
+
+services:
+  frontend:
+    image: testgen-ai-frontend-prod
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        VITE_API_URL: ${VITE_API_URL:-/api}
+        VITE_BASE_PATH: ${VITE_BASE_PATH:-/}
+    environment:
+      - NODE_ENV=production
+    volumes: []  # Development volumes'ları kaldır
+
+  backend:
+    image: testgen-ai-backend-prod
+    working_dir: /app
+    environment:
+      - ENVIRONMENT=production
+      - USE_MOCK_MODEL=false
+      - LOG_LEVEL=INFO
+      - PYTHONPATH=/app
+      - APP_SOURCE_ROOT=/app
+      - DATA_ROOT=/app/data
+      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres:postgres@db:5432/test_db}
+      - POSTGRES_HOST=${POSTGRES_HOST:-db}
+      - POSTGRES_PORT=${POSTGRES_PORT:-5432}
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-test_db}
+    volumes:
+      # Development volume'ları kaldır, sadece data'yı tut
+      - ./data:/app/data:rw
+      - model_cache:/root/.cache/huggingface
+    restart: always
+
+  db:
+    restart: always
+    # Production'da DB dump için ek volume
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./backups:/backups
+
+volumes:
+  postgres_data:
+  model_cache:
+
+networks:
+  app-network:
+    driver: bridge

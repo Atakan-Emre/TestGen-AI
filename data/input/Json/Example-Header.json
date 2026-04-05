@@ -1,0 +1,77 @@
+{
+  "accountingStatus": true,
+  "branchDocumentSeries": {
+    "documentClass": "NONE",
+    "id": "string",
+    "subDocumentClass": "NONE"
+  },
+  "cardCurrencyDescription": {
+    "id": "string",
+    "numericCode": "string",
+    "unit": 0
+  },
+  "cardCurrencyExchangeRate": 0,
+  "checkNoteCaseCard": {
+    "bankCard": {
+      "id": "string"
+    },
+    "financeCardType": "CUSTOMER",
+    "id": "string"
+  },
+  "checkNoteCaseCardType": {
+    "id": "string"
+  },
+  "currencyDescription": {
+    "id": "string",
+    "numericCode": "string",
+    "unit": 0
+  },
+  "currencyExchangeRate": 0,
+  "documentDate": "2025-09-11T13:34:12.828Z",
+  "documentDescription": "string",
+  "documentNumber": "string",
+  "documentSpecialVariableValues": null,
+  "entityStatus": "SAVED_TO_PHOENIX",
+  "externalId": "string",
+  "financeCard": {
+    "bankCard": {
+      "id": "string"
+    },
+    "financeCardType": "CUSTOMER",
+    "id": "string"
+  },
+  "financeCardType": "CUSTOMER",
+  "id": "string",
+  "relatedDocument": {
+    "branchDocumentSeries": {
+      "documentClass": "NONE",
+      "id": "string",
+      "subDocumentClass": "NONE"
+    },
+    "documentDate": "2025-09-11T13:34:12.828Z",
+    "documentDescription": "string",
+    "documentNumber": "string",
+    "id": "string",
+    "subDocumentClass": "NONE"
+  },
+  "relatedInvoiceDocument": {
+    "branchDocumentSeries": {
+      "documentClass": "NONE",
+      "id": "string",
+      "subDocumentClass": "NONE"
+    },
+    "documentDate": "2025-09-11T13:34:12.828Z",
+    "documentDescription": "string",
+    "documentNumber": "string",
+    "id": "string",
+    "subDocumentClass": "NONE"
+  },
+  "subDocumentClass": "NONE",
+  "turnover": true,
+  "user": {
+    "active": true,
+    "description": "string",
+    "id": "string",
+    "username": "string"
+  }
+}

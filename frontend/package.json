@@ -1,0 +1,71 @@
+{
+  "name": "testgen-ai-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TestGen AI frontend for NLP-assisted scenario, binding, and API test generation",
+  "homepage": "https://atakan-emre.github.io/TestGen-AI/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atakan-Emre/TestGen-AI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Atakan-Emre/TestGen-AI/issues"
+  },
+  "keywords": [
+    "testgen-ai",
+    "api-testing",
+    "scenario-generation",
+    "nlp",
+    "binding-studio",
+    "fastapi",
+    "react"
+  ],
+  "type": "module",
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^6.3.0",
+    "@tanstack/react-query": "^5.14.2",
+    "@tanstack/react-query-devtools": "^5.14.2",
+    "@textea/json-viewer": "^4.0.1",
+    "antd": "^5.12.5",
+    "axios": "^1.6.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1",
+    "react-router-dom": "^6.21.1",
+    "reactflow": "^11.10.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/ui": "^1.1.0",
+    "autoprefixer": "^10.4.16",
+    "jsdom": "^23.0.1",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "build": "tsc && vite build",
+    "build:pages": "tsc && vite build && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  }
+}

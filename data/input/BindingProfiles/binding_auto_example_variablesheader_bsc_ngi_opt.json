@@ -1,0 +1,918 @@
+{
+  "name": "binding_auto_example_variablesheader_bsc_ngi_opt",
+  "json_file_id": 6,
+  "variables_profile": "variablesHeader",
+  "description": "Example-Header.json için otomatik eşleştirme",
+  "bindings": [
+    {
+      "json_path": "id",
+      "schema_type": "id",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "user.id",
+      "schema_type": "id",
+      "suggested_variable_key": "user.id",
+      "variable_key": "user.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "jplatformuser Admin"
+    },
+    {
+      "json_path": "user.active",
+      "schema_type": "bool",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "true",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "user.username",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "user.description",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "turnover",
+      "schema_type": "bool",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "true",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "externalId",
+      "schema_type": "id",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "financeCard.id",
+      "schema_type": "id",
+      "suggested_variable_key": "financeCard.id",
+      "variable_key": "financeCard.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "5fbfdff0-7751-4510-b1ca-b20ecb3cfdcf"
+    },
+    {
+      "json_path": "financeCard.bankCard.id",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "financeCard.financeCardType",
+      "schema_type": "string",
+      "suggested_variable_key": "financeCardType",
+      "variable_key": "financeCardType",
+      "confidence": 0.96,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "CUSTOMER",
+      "variable_value_preview": "CUSTOMER"
+    },
+    {
+      "json_path": "documentDate",
+      "schema_type": "date",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "2025-09-11T13:34:12.828Z",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "entityStatus",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "SAVED_TO_PHOENIX",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "documentNumber",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "financeCardType",
+      "schema_type": "string",
+      "suggested_variable_key": "financeCardType",
+      "variable_key": "financeCardType",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "CUSTOMER",
+      "variable_value_preview": "CUSTOMER"
+    },
+    {
+      "json_path": "relatedDocument.id",
+      "schema_type": "id",
+      "suggested_variable_key": "branchDocumentSeries.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "28052c8b-15a8-46d9-ba7f-86b848c60c3e"
+    },
+    {
+      "json_path": "relatedDocument.documentDate",
+      "schema_type": "date",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "2025-09-11T13:34:12.828Z",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedDocument.documentNumber",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedDocument.subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedDocument.documentDescription",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedDocument.branchDocumentSeries.id",
+      "schema_type": "id",
+      "suggested_variable_key": "branchDocumentSeries.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "28052c8b-15a8-46d9-ba7f-86b848c60c3e"
+    },
+    {
+      "json_path": "relatedDocument.branchDocumentSeries.documentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedDocument.branchDocumentSeries.subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "accountingStatus",
+      "schema_type": "bool",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "true",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "checkNoteCaseCard.id",
+      "schema_type": "id",
+      "suggested_variable_key": "checkNoteCaseCard.id",
+      "variable_key": "checkNoteCaseCard.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "713f8a32-fd58-4ef6-8bef-940f09735752"
+    },
+    {
+      "json_path": "checkNoteCaseCard.bankCard.id",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "checkNoteCaseCard.financeCardType",
+      "schema_type": "string",
+      "suggested_variable_key": "financeCardType",
+      "variable_key": "financeCardType",
+      "confidence": 0.96,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "CUSTOMER",
+      "variable_value_preview": "CUSTOMER"
+    },
+    {
+      "json_path": "currencyDescription.id",
+      "schema_type": "id",
+      "suggested_variable_key": "currencyDescription.id",
+      "variable_key": "currencyDescription.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "currencyDescription.unit",
+      "schema_type": "number",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "0",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "currencyDescription.numericCode",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "documentDescription",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "branchDocumentSeries.id",
+      "schema_type": "id",
+      "suggested_variable_key": "branchDocumentSeries.id",
+      "variable_key": "branchDocumentSeries.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "28052c8b-15a8-46d9-ba7f-86b848c60c3e"
+    },
+    {
+      "json_path": "branchDocumentSeries.documentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "branchDocumentSeries.subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "currencyExchangeRate",
+      "schema_type": "number",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "0",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "checkNoteCaseCardType.id",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "relatedInvoiceDocument.id",
+      "schema_type": "id",
+      "suggested_variable_key": "branchDocumentSeries.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "28052c8b-15a8-46d9-ba7f-86b848c60c3e"
+    },
+    {
+      "json_path": "relatedInvoiceDocument.documentDate",
+      "schema_type": "date",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "2025-09-11T13:34:12.828Z",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedInvoiceDocument.documentNumber",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedInvoiceDocument.subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedInvoiceDocument.documentDescription",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedInvoiceDocument.branchDocumentSeries.id",
+      "schema_type": "id",
+      "suggested_variable_key": "branchDocumentSeries.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "28052c8b-15a8-46d9-ba7f-86b848c60c3e"
+    },
+    {
+      "json_path": "relatedInvoiceDocument.branchDocumentSeries.documentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "relatedInvoiceDocument.branchDocumentSeries.subDocumentClass",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "NONE",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "cardCurrencyDescription.id",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": "cardCurrencyDescription.id",
+      "confidence": 1.0,
+      "status": "matched",
+      "action": "bind",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "cardCurrencyDescription.unit",
+      "schema_type": "number",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "0",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "cardCurrencyDescription.numericCode",
+      "schema_type": "id",
+      "suggested_variable_key": "cardCurrencyDescription.id",
+      "variable_key": null,
+      "confidence": 0.91,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "string",
+      "variable_value_preview": "a1af9bc0-8d79-4004-9298-8e720442e57a"
+    },
+    {
+      "json_path": "cardCurrencyExchangeRate",
+      "schema_type": "number",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "template",
+      "action": "keep_template",
+      "locked": false,
+      "approved": true,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": "0",
+      "variable_value_preview": null
+    },
+    {
+      "json_path": "documentSpecialVariableValues",
+      "schema_type": "string",
+      "suggested_variable_key": null,
+      "variable_key": null,
+      "confidence": 0.0,
+      "status": "generated",
+      "action": "generate",
+      "locked": false,
+      "approved": false,
+      "generators": [
+        "bsc",
+        "ngi",
+        "opt"
+      ],
+      "template_value_preview": null,
+      "variable_value_preview": null
+    }
+  ],
+  "created_at": "2026-04-05T17:14:51.199621+00:00",
+  "updated_at": "2026-04-05T17:14:51.199621+00:00",
+  "summary": {
+    "total_fields": 49,
+    "matched_fields": 9,
+    "suggested_fields": 0,
+    "generated_fields": 1,
+    "template_fields": 39,
+    "bound_fields": 9,
+    "approved_fields": 48,
+    "match_ratio": 0.184,
+    "average_confidence": 0.349,
+    "min_confidence": 0.0,
+    "review_recommended": true,
+    "review_reasons": [
+      "generated_fields_present",
+      "low_match_ratio"
+    ]
+  },
+  "review_recommended": true,
+  "profile_kind": "auto",
+  "generated_by": "binding_autopilot_service",
+  "generated_at": "2026-04-05T17:14:51.199292+00:00",
+  "generator_scope": [
+    "bsc",
+    "ngi",
+    "opt"
+  ]
+}

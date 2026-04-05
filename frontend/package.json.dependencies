@@ -1,0 +1,13 @@
+# React Flow Dependencies to Add
+# Add these to frontend/package.json dependencies:
+
+"reactflow": "^11.10.4",
+"html2canvas": "^1.4.1",
+"jspdf": "^2.5.1",
+"react-markdown": "^9.0.1"
+
+# Installation command:
+npm install reactflow@11.10.4 html2canvas@1.4.1 jspdf@2.5.1 react-markdown@9.0.1
+
+# Or with yarn:
+yarn add reactflow@11.10.4 html2canvas@1.4.1 jspdf@2.5.1 react-markdown@9.0.1
