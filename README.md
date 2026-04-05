@@ -162,8 +162,8 @@ docker compose up -d --build
 
 ## 📂 API Grupları ve Klasör Yapısı
 
-\<details\>
-\<summary\>Ana API Uç Noktalarını Göster\</summary\>
+<details>
+<summary><b>Ana API Uç Noktalarını Göster</b></summary>
 
 | Endpoint Grubu | Açıklama |
 | :--- | :--- |
@@ -173,10 +173,10 @@ docker compose up -d --build
 | `/api/tests/*` | `bsc`, `ngi`, `ngv`, `opt` üretim uç noktaları |
 | `/api/variables` | Ortam profillerinin (txt, json, yaml) CRUD işlemleri |
 
-\</details\>
+</details>
 
-\<details\>
-\<summary\>Klasör Yapısını Göster\</summary\>
+<details>
+<summary><b>Klasör Yapısını Göster</b></summary>
 
 ```text
 .
@@ -194,7 +194,7 @@ docker compose up -d --build
 ├── .github/workflows (CI/CD)
 ├── docker-compose.yml
 └── docker-compose.prod.yml
-```
+````
 
 \</details\>
 
@@ -202,15 +202,20 @@ docker compose up -d --build
 
 ## 🚀 GitHub Pages Demo ve Yayın Akışı
 
-Frontend demosu GitHub Actions üzerinden otomatik olarak [GitHub Pages](https://atakan-emre.github.io/TestGen-AI/)'e deploy edilmektedir. `.github/workflows/frontend-pages.yml` dosyası CI başarıyla tamamlandığında tetiklenir.
+Frontend demosu GitHub Actions üzerinden otomatik olarak GitHub Pages'e deploy edilmektedir. `.github/workflows/frontend-pages.yml` dosyası CI başarıyla tamamlandığında tetiklenir.
 
 **Gereksinimler:**
 
-  * GitHub repo ayarlarından Pages kaynağının `GitHub Actions` seçilmesi.
+  * GitHub repo ayarlarından Pages kaynağının **GitHub Actions** seçilmesi.
   * `PAGES_ADMIN_TOKEN` secret ayarının ve backend ile haberleşme için `VITE_API_URL` variable'ının eklenmiş olması.
 
 -----
 
 \<div align="center"\>
-\<i\>Bu proje, senaryo zekası ve şema bağlama işlemlerini tek platformda toplayan, denetlenebilir bir mühendislik altyapısıdır.\</i\>
+
+*Bu proje, senaryo zekası ve şema bağlama işlemlerini tek platformda toplayan, denetlenebilir bir mühendislik altyapısıdır.*
+
 \</div\>
+
+---
+**Keywords / Anahtar Kelimeler:** `Test Automation`, `Test Case Generator`, `NLP`, `Natural Language Processing`, `Software Testing`, `QA Automation`, `FastAPI`, `React`, `JSON Schema Matching`, `Hybrid NLP`, `Yapay Zeka Destekli Test`, `Otomatik Test Senaryosu Üretimi`, `API Testing`.
