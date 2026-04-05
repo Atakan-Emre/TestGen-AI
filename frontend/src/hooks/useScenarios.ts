@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { API_URL } from '../config';
+import { API_URL, IS_DEMO_MODE } from '../config';
 import type { Scenario, ScenarioMetadata } from '../api/types';
+import {
+  DEMO_MUTATION_MESSAGE,
+  demoScenarios,
+  getDemoScenarioDetail,
+} from '../demo/demoData';
 
 interface ScenarioDetailResponse {
   content: string;
@@ -17,6 +22,11 @@ export const useScenarios = () => {
   const fetchScenarios = async () => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        setScenarios(demoScenarios);
+        setError(null);
+        return;
+      }
       const response = await axios.get(`${API_URL}/scenarios`);
       
       if (!response.data) {
@@ -41,6 +51,11 @@ export const useScenarios = () => {
   const syncScenarios = async () => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        setScenarios(demoScenarios);
+        setError(null);
+        return;
+      }
       await axios.post(`${API_URL}/scenarios/sync`);
       await fetchScenarios();
       setError(null);
@@ -55,6 +70,9 @@ export const useScenarios = () => {
   const uploadScenario = async (file: File) => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       const formData = new FormData();
       formData.append('file', file);
       await axios.post(`${API_URL}/scenarios/upload`, formData, {
@@ -75,6 +93,9 @@ export const useScenarios = () => {
   const deleteScenario = async (id: number | string) => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       const scenario = scenarios.find((s) => String(s.id) === String(id));
       if (!scenario) {
         throw new Error('Senaryo bulunamadı');
@@ -94,6 +115,10 @@ export const useScenarios = () => {
   const getScenarioDetail = async (filename: string): Promise<ScenarioDetailResponse> => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        setError(null);
+        return getDemoScenarioDetail(filename);
+      }
       const response = await axios.get<ScenarioDetailResponse>(`${API_URL}/scenarios/${filename}`);
       setError(null);
       return {
@@ -145,6 +170,9 @@ export const useScenarios = () => {
   const createScenario = async (data: any) => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       await axios.post(`${API_URL}/scenarios`, data);
       await fetchScenarios();
       setError(null);
@@ -160,6 +188,9 @@ export const useScenarios = () => {
   const updateScenario = async (id: number | string, data: any) => {
     try {
       setLoading(true);
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       await axios.put(`${API_URL}/scenarios/${id}`, data);
       await fetchScenarios();
       setError(null);

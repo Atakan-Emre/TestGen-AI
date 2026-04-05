@@ -1,4 +1,4 @@
-import { API_URL } from '../config';
+import { API_URL, IS_DEMO_MODE } from '../config';
 import type {
   BindingFieldRule,
   BindingAutoResolveResult,
@@ -12,6 +12,13 @@ import type {
   BindingSuggestionApiResponse,
   BindingGeneratorKey,
 } from '../types/binding';
+import {
+  demoAutoResolveResult,
+  demoBindingProfile,
+  demoBindingProfileSummary,
+  demoBindingRules,
+  getDemoBindingValidationResult,
+} from '../demo/demoData';
 
 const mapBackendActionToUi = (action: string) => {
   switch (action) {
@@ -118,6 +125,9 @@ export const bindingApi = {
     variables_profile: string;
     generators?: BindingGeneratorKey[];
   }): Promise<BindingFieldRule[]> {
+    if (IS_DEMO_MODE) {
+      return demoBindingRules;
+    }
     const response = await fetch(`${API_URL}/bindings/suggest`, {
       method: 'POST',
       headers: {
@@ -150,6 +160,21 @@ export const bindingApi = {
     profile_name?: string;
     description?: string;
   }): Promise<BindingAutoResolveResult> {
+    if (IS_DEMO_MODE) {
+      return {
+        ...demoAutoResolveResult,
+        profile_name: params.profile_name || demoAutoResolveResult.profile_name,
+        saved_profile: {
+          ...demoBindingProfile,
+          name: params.profile_name || demoBindingProfile.name,
+          source: {
+            ...demoBindingProfile.source,
+            json_file_id: params.json_file_id,
+            variable_profiles: [params.variables_profile],
+          },
+        },
+      };
+    }
     const response = await fetch(`${API_URL}/bindings/auto-resolve`, {
       method: 'POST',
       headers: {
@@ -188,6 +213,9 @@ export const bindingApi = {
     profile_name?: string;
     description?: string;
   }): Promise<BindingValidationResult> {
+    if (IS_DEMO_MODE) {
+      return getDemoBindingValidationResult();
+    }
     const response = await fetch(`${API_URL}/bindings/validate`, {
       method: 'POST',
       headers: {
@@ -210,6 +238,9 @@ export const bindingApi = {
   },
 
   async listProfiles(): Promise<BindingProfileSummary[]> {
+    if (IS_DEMO_MODE) {
+      return [demoBindingProfileSummary];
+    }
     const response = await fetch(`${API_URL}/bindings/profiles`);
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -225,6 +256,12 @@ export const bindingApi = {
   },
 
   async getProfile(name: string): Promise<BindingProfile> {
+    if (IS_DEMO_MODE) {
+      return {
+        ...demoBindingProfile,
+        name,
+      };
+    }
     const response = await fetch(`${API_URL}/bindings/profiles/${encodeURIComponent(name)}`);
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
@@ -240,6 +277,12 @@ export const bindingApi = {
   },
 
   async saveProfile(profile: BindingProfile, description?: string): Promise<BindingProfile> {
+    if (IS_DEMO_MODE) {
+      return {
+        ...profile,
+        updated_at: new Date().toISOString(),
+      };
+    }
     const response = await fetch(`${API_URL}/bindings/profiles/${encodeURIComponent(profile.name)}`, {
       method: 'PUT',
       headers: {
@@ -278,6 +321,9 @@ export const bindingApi = {
   },
 
   async deleteProfile(name: string): Promise<void> {
+    if (IS_DEMO_MODE) {
+      return;
+    }
     const response = await fetch(`${API_URL}/bindings/profiles/${encodeURIComponent(name)}`, {
       method: 'DELETE',
     });

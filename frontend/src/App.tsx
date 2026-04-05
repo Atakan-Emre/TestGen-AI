@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Layout, Menu, Typography, App as AntApp, Spin } from 'antd';
+import { Layout, Menu, Typography, App as AntApp, Spin, Tag } from 'antd';
 import { 
   HomeOutlined, 
   FileTextOutlined, 
@@ -9,6 +9,7 @@ import {
   ExperimentOutlined,
   AppstoreOutlined
 } from '@ant-design/icons';
+import { IS_DEMO_MODE } from './config';
 
 const { Header, Content, Sider } = Layout;
 const { Title } = Typography;
@@ -110,6 +111,7 @@ const App: React.FC = () => {
             <div className="header-title">
               <AppstoreOutlined className="header-icon" />
               <Title level={4}>TestGen AI</Title>
+              {IS_DEMO_MODE ? <Tag color="gold">Demo</Tag> : null}
             </div>
           </Header>
           <Layout>

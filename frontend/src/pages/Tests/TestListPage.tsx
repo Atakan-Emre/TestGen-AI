@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
+    Alert,
     Card, 
     Table, 
     Button, 
@@ -21,7 +22,15 @@ import {
 } from '@ant-design/icons';
 import type { TableProps } from 'antd';
 import axios from 'axios';
-import { API_URL } from '../../config';
+import { API_URL, IS_DEMO_MODE } from '../../config';
+import {
+    DEMO_MODE_DESCRIPTION,
+    DEMO_MODE_TITLE,
+    DEMO_MUTATION_MESSAGE,
+    demoTestDirectories,
+    demoTestGroups,
+    getDemoTestFileContent,
+} from '../../demo/demoData';
 
 const { Panel } = Collapse;
 const { Search } = Input;
@@ -84,6 +93,10 @@ export const TestListPage: React.FC = () => {
     const fetchTestGroups = async () => {
         try {
             setLoading(true);
+            if (IS_DEMO_MODE) {
+                setTestGroups(demoTestGroups);
+                return;
+            }
             // Önce tüm klasörleri al
             const dirResponse = await axios.get(`${API_URL}/tests/list-directories`);
             const directories = dirResponse.data;
@@ -156,6 +169,10 @@ export const TestListPage: React.FC = () => {
 
     const fetchDirectories = async () => {
         try {
+            if (IS_DEMO_MODE) {
+                setDirectories(demoTestDirectories);
+                return;
+            }
             const response = await axios.get(`${API_URL}/tests/list-directories`);
             setDirectories(response.data);
         } catch (error) {
@@ -169,6 +186,10 @@ export const TestListPage: React.FC = () => {
     };
 
     const fetchFileContent = async (file: JsonFile) => {
+        if (IS_DEMO_MODE) {
+            return getDemoTestFileContent(file.type);
+        }
+
         if (file.content) {
             return file.content;
         }
@@ -210,6 +231,10 @@ export const TestListPage: React.FC = () => {
 
     const handleDelete = async (fileNames: string[]) => {
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             await new Promise<boolean>((resolve) => {
                 modal.confirm({
                     title: 'Silme Onayı',
@@ -277,6 +302,10 @@ export const TestListPage: React.FC = () => {
 
     const handleDeleteDirectory = async (dirName: string) => {
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             await new Promise<boolean>((resolve) => {
                 modal.confirm({
                     title: 'Klasör Silme Onayı',
@@ -379,6 +408,7 @@ export const TestListPage: React.FC = () => {
                             danger 
                             icon={<DeleteOutlined />}
                             onClick={() => handleDelete([record.name])}
+                            disabled={IS_DEMO_MODE}
                         />
                     </Tooltip>
                 </Space>
@@ -412,6 +442,7 @@ export const TestListPage: React.FC = () => {
                         e.stopPropagation(); // Collapse açılmasını engelle
                         handleDeleteDirectory(group.test_name);
                     }}
+                    disabled={IS_DEMO_MODE}
                 >
                     Klasörü Sil
                 </Button>
@@ -443,6 +474,14 @@ export const TestListPage: React.FC = () => {
                 <Space direction="vertical" style={{ width: '100%' }} size="large">
                     <Card title="Test Sonuçları">
                         <Space direction="vertical" style={{ width: '100%' }} size="large">
+                            {IS_DEMO_MODE ? (
+                                <Alert
+                                    type="info"
+                                    showIcon
+                                    message={DEMO_MODE_TITLE}
+                                    description={DEMO_MODE_DESCRIPTION}
+                                />
+                            ) : null}
                             <Space style={{ justifyContent: 'space-between', width: '100%' }}>
                                 <Space>
                                     <Search
@@ -469,6 +508,7 @@ export const TestListPage: React.FC = () => {
                                             danger 
                                             icon={<DeleteOutlined />}
                                             onClick={() => handleDelete(selectedFiles)}
+                                            disabled={IS_DEMO_MODE}
                                         >
                                             Seçilenleri Sil
                                         </Button>

@@ -52,10 +52,17 @@ import {
     describeAutoBindingSummary,
     mapReviewReasonsToLabels,
 } from '../../hooks/bindingAutoFlow.utils';
-import { API_URL } from '../../config';
+import { API_URL, IS_DEMO_MODE } from '../../config';
 import type { Scenario, ScenarioMetadata } from '../../api/types';
 import { BindingStudioPanel } from '../../components/BindingStudioPanel';
 import type { BindingFieldRule, BindingGeneratorKey, BindingProfilePayload } from '../../types/binding';
+import {
+    DEMO_MODE_DESCRIPTION,
+    DEMO_MODE_TITLE,
+    DEMO_MUTATION_MESSAGE,
+    demoScenarios,
+    getDemoVariableFileContent,
+} from '../../demo/demoData';
 
 const { Option } = Select;
 const { Text } = Typography;
@@ -258,6 +265,14 @@ const TestCreatePage: React.FC = () => {
 
     const loadTestNames = async () => {
         try {
+            if (IS_DEMO_MODE) {
+                const tests = demoScenarios.map((test) => ({
+                    name: test.name,
+                    created_at: test.created_at || ''
+                }));
+                setTestNames(tests);
+                return;
+            }
             const response = await axios.get(`${API_URL}/scenarios/`);
             const tests = response.data.map((test: Scenario) => ({
                 name: test.name,
@@ -379,6 +394,21 @@ const TestCreatePage: React.FC = () => {
 
     const handlePreviewFile = async (file: any) => {
         try {
+            if (IS_DEMO_MODE) {
+                const content = getDemoVariableFileContent(file.name);
+                modal.info({
+                    title: `Önizle: ${file.name}`,
+                    content: (
+                        <div style={{ maxHeight: '400px', overflow: 'auto' }}>
+                            <pre style={{ whiteSpace: 'pre-wrap', fontFamily: 'monospace', fontSize: '12px' }}>
+                                {content}
+                            </pre>
+                        </div>
+                    ),
+                    width: 800,
+                });
+                return;
+            }
             const response = await axios.get(`${API_URL}/files/variables/${file.name}`);
             const content = response.data.content || response.data;
 
@@ -400,6 +430,12 @@ const TestCreatePage: React.FC = () => {
 
     const handleEditFile = async (file: any) => {
         try {
+            if (IS_DEMO_MODE) {
+                setEditingFile(file);
+                setEditContent(getDemoVariableFileContent(file.name));
+                setEditModalVisible(true);
+                return;
+            }
             const response = await axios.get(`${API_URL}/files/variables/${file.name}`);
             const content = response.data.content || response.data;
 
@@ -417,6 +453,10 @@ const TestCreatePage: React.FC = () => {
         }
 
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             await axios.put(`${API_URL}/files/variables/${editingFile.name}`, editContent, {
                 headers: {
                     'Content-Type': 'text/plain'
@@ -605,6 +645,15 @@ const TestCreatePage: React.FC = () => {
             {contextHolder}
             <div>
                 <Card className="workspace-hero-card" style={{ marginBottom: 16 }}>
+                    {IS_DEMO_MODE ? (
+                        <Alert
+                            type="info"
+                            showIcon
+                            style={{ marginBottom: 16 }}
+                            message={DEMO_MODE_TITLE}
+                            description={DEMO_MODE_DESCRIPTION}
+                        />
+                    ) : null}
                     <Row gutter={[24, 24]} align="stretch">
                         <Col xs={24} xl={16}>
                             <Space direction="vertical" size="middle" style={{ width: '100%' }}>

@@ -16,6 +16,8 @@ import { DeleteOutlined, EyeOutlined, UploadOutlined, SyncOutlined, FileTextOutl
 import { Link } from 'react-router-dom';
 import { useScenarios } from '../../hooks/useScenarios';
 import type { Scenario, ScenarioFieldMetadata, ScenarioMetadata } from '../../api/types';
+import { IS_DEMO_MODE } from '../../config';
+import { DEMO_MODE_DESCRIPTION, DEMO_MODE_TITLE } from '../../demo/demoData';
 
 const { Title, Text } = Typography;
 
@@ -149,6 +151,7 @@ export const ScenarioListPage: React.FC = () => {
                         type="primary"
                         icon={<DeleteOutlined />}
                         onClick={() => handleDelete(record)}
+                        disabled={IS_DEMO_MODE}
                     >
                         Sil
                     </Button>
@@ -236,14 +239,16 @@ export const ScenarioListPage: React.FC = () => {
                             handleUpload(file);
                             return false;
                         }}
+                        disabled={IS_DEMO_MODE}
                     >
-                        <Button icon={<UploadOutlined />}>
+                        <Button icon={<UploadOutlined />} disabled={IS_DEMO_MODE}>
                             Senaryo Yükle
                         </Button>
                     </Upload>
                     <Button
                         icon={<SyncOutlined />}
                         onClick={handleSync}
+                        disabled={IS_DEMO_MODE}
                     >
                         Senkronize Et
                     </Button>
@@ -257,6 +262,16 @@ export const ScenarioListPage: React.FC = () => {
                     style={{ marginBottom: '16px' }}
                     message="Senaryo verisi alınırken uyarı oluştu"
                     description={error}
+                />
+            ) : null}
+
+            {IS_DEMO_MODE ? (
+                <Alert
+                    type="info"
+                    showIcon
+                    style={{ marginBottom: '16px' }}
+                    message={DEMO_MODE_TITLE}
+                    description={DEMO_MODE_DESCRIPTION}
                 />
             ) : null}
 

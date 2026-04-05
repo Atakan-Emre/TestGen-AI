@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button, Space, Upload, Modal, Typography, App } from 'antd';
+import { Table, Button, Space, Upload, Modal, Typography, App, Alert } from 'antd';
 import { 
     UploadOutlined, 
     DeleteOutlined, 
@@ -11,6 +11,8 @@ import {
 import { useJsonFiles } from '../../hooks/useJsonFiles';
 import type { JsonFile } from '../../hooks/useJsonFiles';
 import { JsonViewer } from '@textea/json-viewer';
+import { IS_DEMO_MODE } from '../../config';
+import { DEMO_MODE_DESCRIPTION, DEMO_MODE_TITLE } from '../../demo/demoData';
 
 const { Title } = Typography;
 
@@ -18,6 +20,7 @@ export const JsonFilesPage: React.FC = () => {
     const { message } = App.useApp();
     const { 
         jsonFiles, 
+        selectedFile: viewedFile,
         loading: isLoading, 
         deleteJsonFile,
         uploadJsonFile,
@@ -111,6 +114,7 @@ export const JsonFilesPage: React.FC = () => {
                         type="primary"
                         icon={<DeleteOutlined />}
                         onClick={() => handleDelete(record)}
+                        disabled={IS_DEMO_MODE}
                     >
                         Sil
                     </Button>
@@ -129,23 +133,35 @@ export const JsonFilesPage: React.FC = () => {
                     <Upload
                         accept=".json"
                         showUploadList={false}
+                        disabled={IS_DEMO_MODE}
                         beforeUpload={(file) => {
                             handleUpload(file);
                             return false;
                         }}
                     >
-                        <Button type="primary" icon={<UploadOutlined />}>
+                        <Button type="primary" icon={<UploadOutlined />} disabled={IS_DEMO_MODE}>
                             JSON Yükle
                         </Button>
                     </Upload>
                     <Button 
                         icon={<SyncOutlined />} 
                         onClick={handleSync}
+                        disabled={IS_DEMO_MODE}
                     >
                         Senkronize Et
                     </Button>
                 </Space>
             </div>
+
+            {IS_DEMO_MODE ? (
+                <Alert
+                    type="info"
+                    showIcon
+                    style={{ marginBottom: 16 }}
+                    message={DEMO_MODE_TITLE}
+                    description={DEMO_MODE_DESCRIPTION}
+                />
+            ) : null}
             
             <Table
                 columns={columns}
@@ -159,7 +175,7 @@ export const JsonFilesPage: React.FC = () => {
                 title={
                     <Space>
                         <CodeOutlined />
-                        {selectedFile?.name || ''} Detayı
+                        {(viewedFile || selectedFile)?.name || ''} Detayı
                     </Space>
                 }
                 open={isViewModalVisible}
@@ -167,12 +183,12 @@ export const JsonFilesPage: React.FC = () => {
                 width={800}
                 footer={null}
             >
-                {selectedFile?.content && (
+                {(viewedFile || selectedFile)?.content && (
                     <JsonViewer 
                         value={
-                            typeof selectedFile.content === 'string' 
-                                ? JSON.parse(selectedFile.content)
-                                : selectedFile.content
+                            typeof (viewedFile || selectedFile)?.content === 'string' 
+                                ? JSON.parse((viewedFile || selectedFile)?.content as string)
+                                : (viewedFile || selectedFile)?.content
                         }
                         rootName={false}
                         displayDataTypes={false}

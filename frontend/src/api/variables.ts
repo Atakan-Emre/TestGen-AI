@@ -1,5 +1,10 @@
 import { VariableProfileInfo, VariableProfilesResponse, VariablePreviewResponse } from '../types/variables';
-import { API_URL } from '../config';
+import { API_URL, IS_DEMO_MODE } from '../config';
+import {
+  DEMO_MUTATION_MESSAGE,
+  demoVariableProfiles,
+  getDemoVariableFileContent,
+} from '../demo/demoData';
 
 export const variablesApi = {
   /**
@@ -7,6 +12,9 @@ export const variablesApi = {
    */
   async fetchProfiles(): Promise<VariableProfileInfo[]> {
     try {
+      if (IS_DEMO_MODE) {
+        return demoVariableProfiles;
+      }
       const response = await fetch(`${API_URL}/variables/profiles`);
       
       if (!response.ok) {
@@ -31,6 +39,19 @@ export const variablesApi = {
    */
   async fetchProfile(name: string): Promise<Record<string, string>> {
     try {
+      if (IS_DEMO_MODE) {
+        const content = getDemoVariableFileContent(name);
+        return Object.fromEntries(
+          content
+            .split('\n')
+            .map((line) => line.trim())
+            .filter(Boolean)
+            .map((line) => {
+              const [key, ...rest] = line.split('=');
+              return [key, rest.join('=')];
+            })
+        );
+      }
       const response = await fetch(`${API_URL}/variables/profiles/${encodeURIComponent(name)}`);
       
       if (!response.ok) {
@@ -55,6 +76,9 @@ export const variablesApi = {
    */
   async uploadProfile(file: File, name: string, format: 'txt' | 'json' | 'yaml'): Promise<void> {
     try {
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       const formData = new FormData();
       formData.append('file', file);
       formData.append('name', name);
@@ -80,6 +104,9 @@ export const variablesApi = {
    */
   async deleteProfile(name: string): Promise<void> {
     try {
+      if (IS_DEMO_MODE) {
+        throw new Error(DEMO_MUTATION_MESSAGE);
+      }
       const response = await fetch(`${API_URL}/variables/profiles/${encodeURIComponent(name)}`, {
         method: 'DELETE',
       });
@@ -99,6 +126,9 @@ export const variablesApi = {
    */
   async syncProfiles(): Promise<void> {
     try {
+      if (IS_DEMO_MODE) {
+        return;
+      }
       const response = await fetch(`${API_URL}/variables/sync`, {
         method: 'POST',
       });

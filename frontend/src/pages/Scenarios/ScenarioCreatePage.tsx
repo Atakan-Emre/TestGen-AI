@@ -2,9 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Steps, Button, Input, Form, Select, Card, Row, Col, Divider, App, Alert, Descriptions, Space, Tag, Progress } from 'antd';
 import { UploadOutlined, FileTextOutlined, SettingOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { useCsvFiles } from '../../hooks/useCsvFiles';
-import { API_URL } from '../../config';
+import { API_URL, IS_DEMO_MODE } from '../../config';
 import type { ScenarioGenerationJob, ScenarioMetadata } from '../../api/types';
 import axios from 'axios';
+import {
+    DEMO_MODE_DESCRIPTION,
+    DEMO_MODE_TITLE,
+    buildDemoScenarioJob,
+    demoVariableFiles,
+} from '../../demo/demoData';
 
 const { Step } = Steps;
 const { Option } = Select;
@@ -71,6 +77,10 @@ const ScenarioCreatePageContent: React.FC = () => {
     useEffect(() => {
         const loadVariableProfiles = async () => {
             try {
+                if (IS_DEMO_MODE) {
+                    setVariablesFiles(demoVariableFiles.map((file) => ({ id: file.id, name: file.name })));
+                    return;
+                }
                 const response = await axios.get(`${API_URL}/files/variables`);
                 setVariablesFiles(response.data.files || []);
             } catch (loadError) {
@@ -183,6 +193,29 @@ const ScenarioCreatePageContent: React.FC = () => {
                 return;
             }
 
+            if (IS_DEMO_MODE) {
+                const demoJob = buildDemoScenarioJob(scenarioName, selectedFileName || 'example.csv');
+                setGeneratedScenario([]);
+                setGeneratedSummary(null);
+                setGeneratedFile('');
+                setShowResult(false);
+                setIsGenerating(true);
+                setActiveJob({
+                    ...demoJob,
+                    status: 'running',
+                    progress: 0.35,
+                    current_stage: 'semantic_bootstrap',
+                });
+
+                window.setTimeout(() => {
+                    setActiveJob(demoJob);
+                    applyCompletedJobResult(demoJob);
+                    setIsGenerating(false);
+                    message.success('Demo senaryo bundle hazır');
+                }, 700);
+                return;
+            }
+
             const requestData = {
                 name: scenarioName,
                 csv_file_id: parseInt(selectedFile),
@@ -211,7 +244,9 @@ const ScenarioCreatePageContent: React.FC = () => {
     };
 
     const handleGoToList = () => {
-        window.location.href = '/scenarios/list';
+        const basePath = import.meta.env.BASE_URL || '/';
+        const normalizedBase = basePath.endsWith('/') ? basePath : `${basePath}/`;
+        window.location.href = `${normalizedBase}scenarios/list`;
     };
 
     const steps = [
@@ -541,8 +576,17 @@ const ScenarioCreatePageContent: React.FC = () => {
     ];
 
     return (
-        <div style={{ padding: '32px', maxWidth: '1400px', margin: '0 auto' }}>
+            <div style={{ padding: '32px', maxWidth: '1400px', margin: '0 auto' }}>
             <Card>
+                {IS_DEMO_MODE ? (
+                    <Alert
+                        type="info"
+                        showIcon
+                        style={{ marginBottom: 24 }}
+                        message={DEMO_MODE_TITLE}
+                        description={DEMO_MODE_DESCRIPTION}
+                    />
+                ) : null}
                 <h1 style={{ fontSize: '28px', marginBottom: '32px', textAlign: 'center' }}>
                     Test Senaryosu Oluştur
                 </h1>

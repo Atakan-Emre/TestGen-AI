@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { App } from 'antd';
-import { API_URL } from '../config';
+import { API_URL, IS_DEMO_MODE } from '../config';
 import {
   buildTestPayload,
   normalizeGeneratorResult,
   type GeneratorRunResult,
   type TestGeneratorRequest,
 } from './testGenerator.utils';
+import {
+  buildDemoGeneratorResult,
+  demoVariableFiles,
+} from '../demo/demoData';
 
 export const useTestGenerator = () => {
   const { message } = App.useApp();
@@ -22,6 +26,16 @@ export const useTestGenerator = () => {
       setLoading(true);
       setLoadingOperation('variables');
       setError(null);
+      if (IS_DEMO_MODE) {
+        setVariablesFiles(
+          demoVariableFiles.map((file) => ({
+            ...file,
+            created_at: new Date(file.created_at * 1000).toISOString(),
+            updated_at: new Date(file.updated_at * 1000).toISOString(),
+          }))
+        );
+        return;
+      }
       const response = await axios.get(`${API_URL}/files/variables`);
       setVariablesFiles(response.data.files || []);
     } catch (err) {
@@ -38,6 +52,9 @@ export const useTestGenerator = () => {
     generatorType: string,
     request: TestGeneratorRequest
   ): Promise<GeneratorRunResult> => {
+    if (IS_DEMO_MODE) {
+      return buildDemoGeneratorResult(generatorType, request);
+    }
     const endpoint = `${API_URL}/tests/${generatorType}/generate`;
     const payload = buildTestPayload(generatorType, request);
     const response = await axios.post(endpoint, payload);

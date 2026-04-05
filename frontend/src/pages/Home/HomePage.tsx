@@ -28,7 +28,12 @@ import {
 import type { TableProps } from 'antd';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API_URL } from '../../config';
+import { API_URL, IS_DEMO_MODE } from '../../config';
+import {
+    DEMO_MODE_DESCRIPTION,
+    DEMO_MODE_TITLE,
+    demoDashboardSummary,
+} from '../../demo/demoData';
 
 const { Title, Text } = Typography;
 
@@ -103,6 +108,10 @@ export const HomePage: React.FC = () => {
         try {
             setLoading(true);
             setError(null);
+            if (IS_DEMO_MODE) {
+                setDashboard(demoDashboardSummary as DashboardSummary);
+                return;
+            }
             const response = await axios.get<DashboardSummary>(`${API_URL}/dashboard/summary`);
             setDashboard(response.data);
         } catch (err) {
@@ -259,6 +268,16 @@ export const HomePage: React.FC = () => {
                     message="Dashboard yüklenemedi"
                     description={error}
                     style={{ marginBottom: 16 }}
+                />
+            ) : null}
+
+            {IS_DEMO_MODE ? (
+                <Alert
+                    type="info"
+                    showIcon
+                    style={{ marginBottom: 16 }}
+                    message={DEMO_MODE_TITLE}
+                    description={DEMO_MODE_DESCRIPTION}
                 />
             ) : null}
 

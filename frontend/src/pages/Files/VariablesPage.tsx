@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
+    Alert,
     Card, 
     Table, 
     Button, 
@@ -23,7 +24,14 @@ import {
 import type { UploadProps } from 'antd';
 import type { TableProps } from 'antd';
 import axios from 'axios';
-import { API_URL } from '../../config';
+import { API_URL, IS_DEMO_MODE } from '../../config';
+import {
+    DEMO_MODE_DESCRIPTION,
+    DEMO_MODE_TITLE,
+    DEMO_MUTATION_MESSAGE,
+    demoVariableFiles,
+    getDemoVariableFileContent,
+} from '../../demo/demoData';
 
 const { Search } = Input;
 const { TextArea } = Input;
@@ -52,6 +60,10 @@ export const VariablesPage: React.FC = () => {
     const fetchFiles = async () => {
         try {
             setLoading(true);
+            if (IS_DEMO_MODE) {
+                setFiles(demoVariableFiles);
+                return;
+            }
             const response = await axios.get(`${API_URL}/files/variables`);
             if (response.data.files) {
                 setFiles(response.data.files);
@@ -77,6 +89,14 @@ export const VariablesPage: React.FC = () => {
 
     const handleView = async (file: VariableFile) => {
         try {
+            if (IS_DEMO_MODE) {
+                setSelectedFile({
+                    ...file,
+                    content: getDemoVariableFileContent(file.name)
+                });
+                setViewModalVisible(true);
+                return;
+            }
             const response = await axios.get(`${API_URL}/files/variables/${file.name}`);
             if (response.data.content) {
                 setSelectedFile({
@@ -95,6 +115,16 @@ export const VariablesPage: React.FC = () => {
 
     const handleEdit = async (file: VariableFile) => {
         try {
+            if (IS_DEMO_MODE) {
+                const content = getDemoVariableFileContent(file.name);
+                setSelectedFile({
+                    ...file,
+                    content
+                });
+                setEditContent(content);
+                setEditModalVisible(true);
+                return;
+            }
             const response = await axios.get(`${API_URL}/files/variables/${file.name}`);
             if (response.data.content) {
                 setSelectedFile({
@@ -116,6 +146,10 @@ export const VariablesPage: React.FC = () => {
         if (!selectedFile) return;
 
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             const response = await axios.put(
                 `${API_URL}/files/variables/${selectedFile.name}`,
                 editContent,
@@ -142,6 +176,10 @@ export const VariablesPage: React.FC = () => {
 
     const handleSaveNew = async () => {
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             // Yeni dosya adını al
             const fileName = await new Promise<string>((resolve, reject) => {
                 modal.confirm({
@@ -196,6 +234,10 @@ export const VariablesPage: React.FC = () => {
 
     const handleDelete = async (fileName: string) => {
         try {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return;
+            }
             await new Promise<boolean>((resolve) => {
                 modal.confirm({
                     title: 'Silme Onayı',
@@ -230,6 +272,13 @@ export const VariablesPage: React.FC = () => {
         action: `${API_URL}/files/upload`,
         accept: '.txt,.json,.yaml,.yml',
         showUploadList: false,
+        beforeUpload() {
+            if (IS_DEMO_MODE) {
+                messageApi.info(DEMO_MUTATION_MESSAGE);
+                return false;
+            }
+            return true;
+        },
         onChange(info) {
             if (info.file.status === 'done') {
                 messageApi.success(`${info.file.name} başarıyla yüklendi`);
@@ -284,6 +333,7 @@ export const VariablesPage: React.FC = () => {
                             type="primary"
                             icon={<EditOutlined />}
                             onClick={() => handleEdit(record)}
+                            disabled={IS_DEMO_MODE}
                         />
                     </Tooltip>
                     <Tooltip title="Sil">
@@ -291,6 +341,7 @@ export const VariablesPage: React.FC = () => {
                             danger 
                             icon={<DeleteOutlined />}
                             onClick={() => handleDelete(record.name)}
+                            disabled={IS_DEMO_MODE}
                         />
                     </Tooltip>
                 </Space>
@@ -305,6 +356,14 @@ export const VariablesPage: React.FC = () => {
             <div style={{ padding: '24px' }}>
                 <Card title="Değişken Değerleri">
                     <Space direction="vertical" style={{ width: '100%' }} size="large">
+                        {IS_DEMO_MODE ? (
+                            <Alert
+                                type="info"
+                                showIcon
+                                message={DEMO_MODE_TITLE}
+                                description={DEMO_MODE_DESCRIPTION}
+                            />
+                        ) : null}
                         <Space style={{ justifyContent: 'space-between', width: '100%' }}>
                             <Space>
                                 <Search
@@ -327,11 +386,12 @@ export const VariablesPage: React.FC = () => {
                                     type="primary"
                                     icon={<FileAddOutlined />}
                                     onClick={handleCreateNew}
+                                    disabled={IS_DEMO_MODE}
                                 >
                                     Yeni Dosya Oluştur
                                 </Button>
                                 <Upload {...uploadProps}>
-                                    <Button icon={<UploadOutlined />}>Dosya Yükle</Button>
+                                    <Button icon={<UploadOutlined />} disabled={IS_DEMO_MODE}>Dosya Yükle</Button>
                                 </Upload>
                             </Space>
                         </Space>
@@ -375,6 +435,7 @@ export const VariablesPage: React.FC = () => {
                             type="primary" 
                             icon={<SaveOutlined />}
                             onClick={selectedFile ? handleSave : handleSaveNew}
+                            disabled={IS_DEMO_MODE}
                         >
                             Kaydet
                         </Button>

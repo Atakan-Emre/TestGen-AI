@@ -203,10 +203,15 @@ docker compose up -d --build
 
 Frontend demosu GitHub Actions üzerinden otomatik olarak GitHub Pages'e deploy edilmektedir. [frontend-pages.yml](/Users/atakanemre/Downloads/test_project-main/.github/workflows/frontend-pages.yml) dosyası `main` veya `master` branch'ine yapılan push sonrası tetiklenir. İstenirse Actions ekranından manuel olarak da çalıştırılabilir.
 
+GitHub Pages yalnızca statik frontend sunar; FastAPI backend'i barındırmaz. Bu nedenle Pages üzerinde iki çalışma modu vardır:
+
+  * `VITE_API_URL` tanımlıysa frontend gerçek backend'e bağlanır.
+  * `VITE_API_URL` tanımlı değilse uygulama otomatik olarak **demo moduna** geçer ve repo içindeki örnek CSV, JSON, variables, senaryo ve test çıktıları ile çalışır.
+
 **Gereksinimler:**
 
   * GitHub repo ayarlarından Pages kaynağının **GitHub Actions** seçilmesi.
-  * Backend ile haberleşme için `VITE_API_URL` variable'ının eklenmiş olması.
+  * Canlı API akışı isteniyorsa `VITE_API_URL` variable'ının eklenmiş olması.
   * Repo daha önce Pages için hiç açılmadıysa ya bir kez `Settings > Pages > Source: GitHub Actions` seçilmesi ya da `PAGES_ADMIN_TOKEN` secret'ının eklenmiş olması.
 
 -----

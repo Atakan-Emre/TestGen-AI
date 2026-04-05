@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button, Space, Upload, Modal, Typography, App } from 'antd';
+import { Table, Button, Space, Upload, Modal, Typography, App, Alert } from 'antd';
 import { 
     UploadOutlined, 
     DeleteOutlined, 
@@ -10,6 +10,8 @@ import {
 } from '@ant-design/icons';
 import { useCsvFiles } from '../../hooks/useCsvFiles';
 import type { CsvFile } from '../../hooks/useCsvFiles';
+import { IS_DEMO_MODE } from '../../config';
+import { DEMO_MODE_DESCRIPTION, DEMO_MODE_TITLE } from '../../demo/demoData';
 
 const { Title } = Typography;
 
@@ -17,6 +19,7 @@ export const CsvFilesPage: React.FC = () => {
     const { message } = App.useApp();
     const { 
         csvFiles, 
+        selectedFile: viewedFile,
         loading: isLoading, 
         uploadCsvFile: uploadCsv, 
         deleteCsvFile: deleteCsv,
@@ -113,6 +116,7 @@ export const CsvFilesPage: React.FC = () => {
                         type="primary"
                         icon={<DeleteOutlined />}
                         onClick={() => handleDelete(record)}
+                        disabled={IS_DEMO_MODE}
                     >
                         Sil
                     </Button>
@@ -133,23 +137,35 @@ export const CsvFilesPage: React.FC = () => {
                             <Upload
                                 accept=".csv"
                                 showUploadList={false}
+                                disabled={IS_DEMO_MODE}
                                 beforeUpload={(file) => {
                                     handleUpload(file);
                                     return false;
                                 }}
                             >
-                                <Button type="primary" icon={<UploadOutlined />}>
+                                <Button type="primary" icon={<UploadOutlined />} disabled={IS_DEMO_MODE}>
                                     CSV Yükle
                                 </Button>
                             </Upload>
                             <Button 
                                 icon={<SyncOutlined />} 
                                 onClick={handleSync}
+                                disabled={IS_DEMO_MODE}
                             >
                                 Senkronize Et
                             </Button>
                         </Space>
                     </div>
+
+                    {IS_DEMO_MODE ? (
+                        <Alert
+                            type="info"
+                            showIcon
+                            style={{ marginBottom: 16 }}
+                            message={DEMO_MODE_TITLE}
+                            description={DEMO_MODE_DESCRIPTION}
+                        />
+                    ) : null}
                     
                     <Table
                         columns={columns}
@@ -164,7 +180,7 @@ export const CsvFilesPage: React.FC = () => {
                         title={
                             <Space>
                                 <FileExcelOutlined />
-                                {selectedFile?.name || ''} Detayı
+                                {(viewedFile || selectedFile)?.name || ''} Detayı
                             </Space>
                         }
                         open={isViewModalVisible}
@@ -173,7 +189,7 @@ export const CsvFilesPage: React.FC = () => {
                         footer={null}
                     >
                         <pre className="content-preview">
-                            {selectedFile?.content}
+                            {(viewedFile || selectedFile)?.content}
                         </pre>
                     </Modal>
 
